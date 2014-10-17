@@ -33,6 +33,7 @@ public class SignUpView_newage: SignUpView_default, KeyboardLayoutable {
 	@IBOutlet internal var jobFailMsg: UILabel?
 	@IBOutlet internal var passwordFailMsg: UILabel?
 
+	@IBOutlet internal var titleLabel: UILabel?
 	@IBOutlet internal var nameLabel: UILabel?
 	@IBOutlet internal var emailLabel: UILabel?
 	@IBOutlet internal var jobLabel: UILabel?
@@ -57,6 +58,79 @@ public class SignUpView_newage: SignUpView_default, KeyboardLayoutable {
 
 
 	//MARK: SignUpView
+
+	override func onSetTranslations() {
+		let bundle = NSBundle(forClass: self.dynamicType)
+
+		firstNameField!.placeholder = NSLocalizedString("newage-signup-first-name",
+				tableName: "newage",
+				bundle: bundle,
+				value: "",
+				comment: "")
+		lastNameField!.placeholder = NSLocalizedString("newage-signup-last-name",
+				tableName: "newage",
+				bundle: bundle,
+				value: "",
+				comment: "")
+		emailAddressField!.placeholder = NSLocalizedString("newage-signup-email",
+				tableName: "newage",
+				bundle: bundle,
+				value: "",
+				comment: "")
+		passwordField!.placeholder = NSLocalizedString("newage-signup-password",
+				tableName: "newage",
+				bundle: bundle,
+				value: "",
+				comment: "")
+		jobField!.placeholder = NSLocalizedString("newage-signup-job",
+				tableName: "newage",
+				bundle: bundle,
+				value: "",
+				comment: "")
+
+		titleLabel!.text = NSLocalizedString("newage-signup-title",
+				tableName: "newage",
+				bundle: bundle,
+				value: "",
+				comment: "")
+
+		nameLabel!.text = NSLocalizedString("newage-signup-name-title",
+				tableName: "newage",
+				bundle: bundle,
+				value: "",
+				comment: "")
+		emailLabel!.text = NSLocalizedString("newage-signup-email-title",
+				tableName: "newage",
+				bundle: bundle,
+				value: "",
+				comment: "")
+		passwordLabel!.text = NSLocalizedString("newage-signup-password-title",
+				tableName: "newage",
+				bundle: bundle,
+				value: "",
+				comment: "")
+		jobLabel!.text = NSLocalizedString("newage-signup-job-title",
+				tableName: "newage",
+				bundle: bundle,
+				value: "",
+				comment: "")
+
+		nameFailMsg!.text = NSLocalizedString("newage-signup-name-error",
+				tableName: "newage",
+				bundle: bundle,
+				value: "",
+				comment: "")
+		emailFailMsg!.text = NSLocalizedString("newage-signup-email-error",
+				tableName: "newage",
+				bundle: bundle,
+				value: "",
+				comment: "")
+		jobFailMsg!.text = NSLocalizedString("newage-signup-job-error",
+				tableName: "newage",
+				bundle: bundle,
+				value: "",
+				comment: "")
+	}
 
 	override internal func onCreated() {
 		scrollView?.contentSize = scrollView!.frame.size
@@ -182,6 +256,8 @@ public class SignUpView_newage: SignUpView_default, KeyboardLayoutable {
 		var preValidation = false
 		var keepMessage = false
 
+		let bundle = NSBundle(forClass: self.dynamicType)
+
 		switch textField {
 			case firstNameField!:
 				mark = nameMark
@@ -211,24 +287,40 @@ public class SignUpView_newage: SignUpView_default, KeyboardLayoutable {
 					case (let strength)
 					where strength < 0.2:
 						valid = false
-						passwordFailMsg!.text = "Too week password"
+						passwordFailMsg!.text = NSLocalizedString("newage-signup-password-error-1",
+								tableName: "newage",
+								bundle: bundle,
+								value: "",
+								comment: "")
 						passwordFailMsg!.textColor = UIColor.redColor()
 
 					case (let strength)
 					where strength < 0.3:
 						valid = false
-						passwordFailMsg!.text = "Too week password, still"
+						passwordFailMsg!.text = NSLocalizedString("newage-signup-password-error-2",
+								tableName: "newage",
+								bundle: bundle,
+								value: "",
+								comment: "")
 						passwordFailMsg!.textColor = UIColor.redColor()
 
 					case (let strength)
 					where strength < 0.4:
 						valid = true
-						passwordFailMsg!.text = "Valid enough password"
+						passwordFailMsg!.text = NSLocalizedString("newage-signup-password-error-3",
+								tableName: "newage",
+								bundle: bundle,
+								value: "",
+								comment: "")
 						passwordFailMsg!.textColor = UIColor.orangeColor()
 
 					default:
 						valid = true
-						passwordFailMsg!.text = "Strong password!"
+						passwordFailMsg!.text = NSLocalizedString("newage-signup-password-error-4",
+								tableName: "newage",
+								bundle: bundle,
+								value: "",
+								comment: "")
 						passwordFailMsg!.textColor = nameLabel!.textColor
 				}
 

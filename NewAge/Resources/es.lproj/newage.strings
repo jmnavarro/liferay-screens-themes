@@ -1,0 +1,21 @@
+"newage-signup-title"="REGISTRO";
+
+"newage-signup-first-name"="Nombre";
+"newage-signup-last-name"="Apellidos";
+"newage-signup-email"="Dirección de correo";
+"newage-signup-password"="Contraseña";
+"newage-signup-job"="Cargo";
+
+"newage-signup-name-title"="TU NOMBRE";
+"newage-signup-email-title"="DIRECCIÓN DE CORREO";
+"newage-signup-password-title"="CONTRASEÑA";
+"newage-signup-job-title"="CARGO";
+
+"newage-signup-name-error"="Introduce tu nombre completo";
+"newage-signup-email-error"="Introduce un correo válido";
+"newage-signup-job-error"="Introduce tu cargo";
+
+"newage-signup-password-error-1"="Contraseña insegura";
+"newage-signup-password-error-2"="Todavía insegura";
+"newage-signup-password-error-3"="Contraseña suficiente";
+"newage-signup-password-error-4"="¡Contraseña segura!";

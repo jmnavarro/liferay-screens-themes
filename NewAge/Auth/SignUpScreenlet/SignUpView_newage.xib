@@ -215,6 +215,7 @@
                 <outlet property="passwordMark" destination="6ao-l1-0X9" id="udn-uq-zV9"/>
                 <outlet property="scrollView" destination="o29-yh-7hX" id="Vxz-1f-dPn"/>
                 <outlet property="signUpButton" destination="kq3-Yb-Mpp" id="KgG-yc-2Ew"/>
+                <outlet property="titleLabel" destination="Yof-WJ-yh8" id="YD7-Td-zDN"/>
             </connections>
             <point key="canvasLocation" x="198" y="278.5"/>
         </view>
