@@ -212,7 +212,7 @@ public class SignUpView_newage: SignUpView_default, KeyboardLayoutable {
 
 				UIView.animateWithDuration(animation.time.doubleValue,
 						delay: 0.0,
-						options: UIViewAnimationOptions.fromRaw(animation.curve.unsignedLongValue)!,
+						options: UIViewAnimationOptions(animation.curve.unsignedLongValue),
 						animations: {
 							self.frame = CGRectMake(
 									self.frame.origin.x,
@@ -221,7 +221,6 @@ public class SignUpView_newage: SignUpView_default, KeyboardLayoutable {
 									newHeight)
 						},
 						completion: { (completed: Bool) in
-							return
 						})
 			}
 		}
