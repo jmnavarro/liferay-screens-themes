@@ -1,0 +1,21 @@
+"newage-signup-title"="ANMELDEN";
+
+"newage-signup-first-name"="Name";
+"newage-signup-last-name"="Nachname";
+"newage-signup-email"="E-Adresse";
+"newage-signup-password"="Kennwort";
+"newage-signup-job"="Jobtitel";
+
+"newage-signup-name-title"="IHR NAME";
+"newage-signup-email-title"="E-ADRESSE";
+"newage-signup-password-title"="KENNWORT";
+"newage-signup-job-title"="JOBTITEL";
+
+"newage-signup-name-error"="Bitte Vor- und Nachname eingeben";
+"newage-signup-email-error"="Bitte gültige E-Adresse eingeben";
+"newage-signup-job-error"="Bitte gültige Jobtitel eingeben";
+
+"newage-signup-password-error-1"="Zu schwach Kennwort";
+"newage-signup-password-error-2"="Zu schwach Kennwort, noch";
+"newage-signup-password-error-3"="Gültig genug Kennwort";
+"newage-signup-password-error-4"="Ihr Kennwort ist sicher!";
