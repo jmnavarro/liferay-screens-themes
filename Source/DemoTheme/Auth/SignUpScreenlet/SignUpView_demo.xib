@@ -170,11 +170,11 @@
                         <outletCollection property="gestureRecognizers" destination="UTj-yx-A1q" appends="YES" id="ca9-v1-cjk"/>
                     </connections>
                 </scrollView>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="default-form-gradient-top.png" id="DnS-hU-Nc3">
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="demo-form-gradient-top.png" id="DnS-hU-Nc3">
                     <rect key="frame" x="-1" y="-13" width="315" height="30"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="default-form-gradient-bottom.png" id="SUr-4N-io2">
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="demo-form-gradient-bottom.png" id="SUr-4N-io2">
                     <rect key="frame" x="-1" y="409" width="315" height="30"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                 </imageView>
@@ -226,11 +226,11 @@
         </tapGestureRecognizer>
     </objects>
     <resources>
-        <image name="default-form-gradient-bottom.png" width="1" height="25"/>
-        <image name="default-form-gradient-top.png" width="1" height="25"/>
         <image name="demo-check-green.png" width="15" height="12"/>
         <image name="demo-check.png" width="16" height="12"/>
         <image name="demo-cross.png" width="12" height="12"/>
+        <image name="demo-form-gradient-bottom.png" width="1" height="25"/>
+        <image name="demo-form-gradient-top.png" width="1" height="25"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
