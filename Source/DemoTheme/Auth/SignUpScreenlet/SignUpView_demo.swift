@@ -61,76 +61,19 @@ public class SignUpView_demo: SignUpView_default, KeyboardLayoutable {
 	//MARK: SignUpView
 
 	override public func onSetTranslations() {
-		let bundle = NSBundle(forClass: self.dynamicType)
-
-		firstNameField!.placeholder = NSLocalizedString("demo-signup-first-name",
-				tableName: "demo",
-				bundle: bundle,
-				value: "",
-				comment: "")
-		lastNameField!.placeholder = NSLocalizedString("demo-signup-last-name",
-				tableName: "demo",
-				bundle: bundle,
-				value: "",
-				comment: "")
-		emailAddressField!.placeholder = NSLocalizedString("demo-signup-email",
-				tableName: "demo",
-				bundle: bundle,
-				value: "",
-				comment: "")
-		passwordField!.placeholder = NSLocalizedString("demo-signup-password",
-				tableName: "demo",
-				bundle: bundle,
-				value: "",
-				comment: "")
-		jobField!.placeholder = NSLocalizedString("demo-signup-job",
-				tableName: "demo",
-				bundle: bundle,
-				value: "",
-				comment: "")
-
-		titleLabel!.text = NSLocalizedString("demo-signup-title",
-				tableName: "demo",
-				bundle: bundle,
-				value: "",
-				comment: "")
-
-		nameLabel!.text = NSLocalizedString("demo-signup-name-title",
-				tableName: "demo",
-				bundle: bundle,
-				value: "",
-				comment: "")
-		emailLabel!.text = NSLocalizedString("demo-signup-email-title",
-				tableName: "demo",
-				bundle: bundle,
-				value: "",
-				comment: "")
-		passwordLabel!.text = NSLocalizedString("demo-signup-password-title",
-				tableName: "demo",
-				bundle: bundle,
-				value: "",
-				comment: "")
-		jobLabel!.text = NSLocalizedString("demo-signup-job-title",
-				tableName: "demo",
-				bundle: bundle,
-				value: "",
-				comment: "")
-
-		nameFailMsg!.text = NSLocalizedString("demo-signup-name-error",
-				tableName: "demo",
-				bundle: bundle,
-				value: "",
-				comment: "")
-		emailFailMsg!.text = NSLocalizedString("demo-signup-email-error",
-				tableName: "demo",
-				bundle: bundle,
-				value: "",
-				comment: "")
-		jobFailMsg!.text = NSLocalizedString("demo-signup-job-error",
-				tableName: "demo",
-				bundle: bundle,
-				value: "",
-				comment: "")
+		firstNameField!.placeholder = LocalizedString("demo", "signup-first-name", self)
+		lastNameField!.placeholder = LocalizedString("demo", "signup-last-name", self)
+		emailAddressField!.placeholder = LocalizedString("demo", "signup-email", self)
+		passwordField!.placeholder = LocalizedString("demo", "signup-password", self)
+		jobField!.placeholder = LocalizedString("demo", "signup-job", self)
+		titleLabel!.text = LocalizedString("demo", "signup-title", self)
+		nameLabel!.text = LocalizedString("demo", "signup-name-title", self)
+		emailLabel!.text = LocalizedString("demo", "signup-email-title", self)
+		passwordLabel!.text = LocalizedString("demo", "signup-password-title", self)
+		jobLabel!.text = LocalizedString("demo", "signup-job-title", self)
+		nameFailMsg!.text = LocalizedString("demo", "signup-name-error", self)
+		emailFailMsg!.text = LocalizedString("demo", "signup-email-error", self)
+		jobFailMsg!.text = LocalizedString("demo", "signup-job-error", self)
 	}
 
 	override public func onCreated() {
