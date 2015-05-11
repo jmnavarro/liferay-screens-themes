@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 	s.name         = 'LiferayScreensTheme-Demo'
-	s.module_name  = 'DemoTheme'
+	s.module_name  = 'LiferayScreensThemeDemo'
 	s.version      = '0.1'
 	s.summary      = 'A sample theme for Liferay Screens'
 	s.homepage     = 'https://www.liferay.com/liferay-screens'
