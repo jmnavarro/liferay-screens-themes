@@ -12,9 +12,10 @@
 * details.
 */
 import UIKit
+import LiferayScreens
 
 
-public class SignUpView_newage: SignUpView_default, KeyboardLayoutable {
+public class SignUpView_demo: SignUpView_default, KeyboardLayoutable {
 
 	@IBOutlet internal var jobField: UITextField?
 
@@ -59,80 +60,80 @@ public class SignUpView_newage: SignUpView_default, KeyboardLayoutable {
 
 	//MARK: SignUpView
 
-	override func onSetTranslations() {
+	override public func onSetTranslations() {
 		let bundle = NSBundle(forClass: self.dynamicType)
 
-		firstNameField!.placeholder = NSLocalizedString("newage-signup-first-name",
-				tableName: "newage",
+		firstNameField!.placeholder = NSLocalizedString("demo-signup-first-name",
+				tableName: "demo",
 				bundle: bundle,
 				value: "",
 				comment: "")
-		lastNameField!.placeholder = NSLocalizedString("newage-signup-last-name",
-				tableName: "newage",
+		lastNameField!.placeholder = NSLocalizedString("demo-signup-last-name",
+				tableName: "demo",
 				bundle: bundle,
 				value: "",
 				comment: "")
-		emailAddressField!.placeholder = NSLocalizedString("newage-signup-email",
-				tableName: "newage",
+		emailAddressField!.placeholder = NSLocalizedString("demo-signup-email",
+				tableName: "demo",
 				bundle: bundle,
 				value: "",
 				comment: "")
-		passwordField!.placeholder = NSLocalizedString("newage-signup-password",
-				tableName: "newage",
+		passwordField!.placeholder = NSLocalizedString("demo-signup-password",
+				tableName: "demo",
 				bundle: bundle,
 				value: "",
 				comment: "")
-		jobField!.placeholder = NSLocalizedString("newage-signup-job",
-				tableName: "newage",
-				bundle: bundle,
-				value: "",
-				comment: "")
-
-		titleLabel!.text = NSLocalizedString("newage-signup-title",
-				tableName: "newage",
+		jobField!.placeholder = NSLocalizedString("demo-signup-job",
+				tableName: "demo",
 				bundle: bundle,
 				value: "",
 				comment: "")
 
-		nameLabel!.text = NSLocalizedString("newage-signup-name-title",
-				tableName: "newage",
-				bundle: bundle,
-				value: "",
-				comment: "")
-		emailLabel!.text = NSLocalizedString("newage-signup-email-title",
-				tableName: "newage",
-				bundle: bundle,
-				value: "",
-				comment: "")
-		passwordLabel!.text = NSLocalizedString("newage-signup-password-title",
-				tableName: "newage",
-				bundle: bundle,
-				value: "",
-				comment: "")
-		jobLabel!.text = NSLocalizedString("newage-signup-job-title",
-				tableName: "newage",
+		titleLabel!.text = NSLocalizedString("demo-signup-title",
+				tableName: "demo",
 				bundle: bundle,
 				value: "",
 				comment: "")
 
-		nameFailMsg!.text = NSLocalizedString("newage-signup-name-error",
-				tableName: "newage",
+		nameLabel!.text = NSLocalizedString("demo-signup-name-title",
+				tableName: "demo",
 				bundle: bundle,
 				value: "",
 				comment: "")
-		emailFailMsg!.text = NSLocalizedString("newage-signup-email-error",
-				tableName: "newage",
+		emailLabel!.text = NSLocalizedString("demo-signup-email-title",
+				tableName: "demo",
 				bundle: bundle,
 				value: "",
 				comment: "")
-		jobFailMsg!.text = NSLocalizedString("newage-signup-job-error",
-				tableName: "newage",
+		passwordLabel!.text = NSLocalizedString("demo-signup-password-title",
+				tableName: "demo",
+				bundle: bundle,
+				value: "",
+				comment: "")
+		jobLabel!.text = NSLocalizedString("demo-signup-job-title",
+				tableName: "demo",
+				bundle: bundle,
+				value: "",
+				comment: "")
+
+		nameFailMsg!.text = NSLocalizedString("demo-signup-name-error",
+				tableName: "demo",
+				bundle: bundle,
+				value: "",
+				comment: "")
+		emailFailMsg!.text = NSLocalizedString("demo-signup-email-error",
+				tableName: "demo",
+				bundle: bundle,
+				value: "",
+				comment: "")
+		jobFailMsg!.text = NSLocalizedString("demo-signup-job-error",
+				tableName: "demo",
 				bundle: bundle,
 				value: "",
 				comment: "")
 	}
 
-	override internal func onCreated() {
+	override public func onCreated() {
 		scrollView?.contentSize = scrollView!.frame.size
 
 		initialSetup((nameMark!, nameFail!, nameFailMsg!))
@@ -140,19 +141,19 @@ public class SignUpView_newage: SignUpView_default, KeyboardLayoutable {
 		initialSetup((jobMark!, jobFail!, jobFailMsg!))
 		initialSetup((passwordMark!, passwordFail!, passwordFailMsg!))
 
-		BaseScreenlet.setHUDCustomColor(NewAgeThemeBasicGreen)
+		BaseScreenlet.setHUDCustomColor(DemoThemeBasicGreen)
 	}
 
-	override internal func onShow() {
+	override public func onShow() {
 		keyboardManager.registerObserver(self)
 	}
 
-	override func onHide() {
+	override public func onHide() {
 		keyboardManager.unregisterObserver()
 	}
 
-	override func onPreUserAction(actionName: String?, sender: AnyObject?) -> Bool {
-		if actionName == "signup-action" {
+	override public func onPreAction(#name: String?, sender: AnyObject?) -> Bool {
+		if name == "signup-action" {
 			if !valid {
 				shakeEffect()
 			}
@@ -188,7 +189,7 @@ public class SignUpView_newage: SignUpView_default, KeyboardLayoutable {
 		self.endEditing(true)
 	}
 
-	internal func layoutWhenKeyboardShown(var keyboardHeight: CGFloat,
+	public func layoutWhenKeyboardShown(var keyboardHeight: CGFloat,
 			animation:(time: NSNumber, curve: NSNumber)) {
 
 		let absoluteFrame = convertRect(frame, toView: window!)
@@ -227,7 +228,7 @@ public class SignUpView_newage: SignUpView_default, KeyboardLayoutable {
 
 	}
 
-	internal func layoutWhenKeyboardHidden() {
+	public func layoutWhenKeyboardHidden() {
 		if let originalFrameValue = originalFrame {
 			self.frame = originalFrameValue
 			originalFrame = nil
@@ -237,11 +238,11 @@ public class SignUpView_newage: SignUpView_default, KeyboardLayoutable {
 
 	//MARK: UITextFieldDelegate
 
-	override internal func textFieldDidBeginEditing(textField: UITextField!) {
+	override public func textFieldDidBeginEditing(textField: UITextField) {
 		textInput = textField
 	}
 
-	internal func textField(textField: UITextField!,
+	public func textField(textField: UITextField!,
 			shouldChangeCharactersInRange range: NSRange,
 			replacementString string: String!)
 			-> Bool {
@@ -286,8 +287,8 @@ public class SignUpView_newage: SignUpView_default, KeyboardLayoutable {
 					case (let strength)
 					where strength < 0.2:
 						valid = false
-						passwordFailMsg!.text = NSLocalizedString("newage-signup-password-error-1",
-								tableName: "newage",
+						passwordFailMsg!.text = NSLocalizedString("demo-signup-password-error-1",
+								tableName: "demo",
 								bundle: bundle,
 								value: "",
 								comment: "")
@@ -296,8 +297,8 @@ public class SignUpView_newage: SignUpView_default, KeyboardLayoutable {
 					case (let strength)
 					where strength < 0.3:
 						valid = false
-						passwordFailMsg!.text = NSLocalizedString("newage-signup-password-error-2",
-								tableName: "newage",
+						passwordFailMsg!.text = NSLocalizedString("demo-signup-password-error-2",
+								tableName: "demo",
 								bundle: bundle,
 								value: "",
 								comment: "")
@@ -306,8 +307,8 @@ public class SignUpView_newage: SignUpView_default, KeyboardLayoutable {
 					case (let strength)
 					where strength < 0.4:
 						valid = true
-						passwordFailMsg!.text = NSLocalizedString("newage-signup-password-error-3",
-								tableName: "newage",
+						passwordFailMsg!.text = NSLocalizedString("demo-signup-password-error-3",
+								tableName: "demo",
 								bundle: bundle,
 								value: "",
 								comment: "")
@@ -315,8 +316,8 @@ public class SignUpView_newage: SignUpView_default, KeyboardLayoutable {
 
 					default:
 						valid = true
-						passwordFailMsg!.text = NSLocalizedString("newage-signup-password-error-4",
-								tableName: "newage",
+						passwordFailMsg!.text = NSLocalizedString("demo-signup-password-error-4",
+								tableName: "demo",
 								bundle: bundle,
 								value: "",
 								comment: "")

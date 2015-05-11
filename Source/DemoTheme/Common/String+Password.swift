@@ -15,8 +15,8 @@ import Foundation
 
 extension String {
 
-	public var isLangeEnough: Bool {
-		return countElements(self) > 5
+	public var isLargeEnough: Bool {
+		return count(self) > 5
 	}
 
 	public var hasDigits: Bool {
@@ -40,7 +40,7 @@ extension String {
 	public var passwordStrengh: Double {
 		var strengh = 0.0
 
-		if self.isLangeEnough {
+		if self.isLargeEnough {
 			strengh += 0.1
 		}
 

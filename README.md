@@ -1,12 +1,19 @@
-# Liferay Screens Themes
-This repo contains a set of themes to be used with [Liferay Screens](https://github.com/liferay/liferay-screens/).
+# NewAge
+This is a demo theme supporting only [SignUpScreenlet](https://github.com/liferay/liferay-screens/blob/master/ios/Documentation/SignUpScreenlet.md)
 
-The main aim is to release a collection of sample themes to show how they can be created.
+![SignUpScreenlet with Demo theme](demo-sample.png)
 
-## Installation
-Just download the theme folder and drag&drop into your Liferay Screens projects.
 
-As soon as CocoaPods is ready to work with Swift, anyone will be able to release their own theme as a Pod.
+It includes the following features:
 
-##Themes available
- - [NewAge](NewAge/): demo theme for SignUp screenlet, with adaptative layout, validation, password strenght, etc.
+- New flat white/green UI
+- Ready to be used at fullscreen.
+- Adaptative layout: supported both vertical and horizontal orientations. Several resolutions (not tested).
+- Layout adapted for keyboard: submit button is always visible. Scroll on fields.
+- Fields validation: required fields, valid email, etc.
+- Shake button effect when form is not valid.
+- Password strength algorithm: shows if your password is weak, valid or strong.
+- Localized to English, Spanish, German and Chinese (traditional)
+
+
+
