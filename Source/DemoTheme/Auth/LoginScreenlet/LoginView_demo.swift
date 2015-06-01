@@ -14,30 +14,22 @@
 import UIKit
 import LiferayScreens
 
-@IBDesignable public class SignUpView_demo: SignUpView_default, KeyboardLayoutable {
 
-	@IBOutlet internal var jobField: UITextField?
+@IBDesignable public class LoginView_demo: LoginView_default, KeyboardLayoutable {
 
-	@IBOutlet internal var nameMark: UIImageView?
 	@IBOutlet internal var emailMark: UIImageView?
-	@IBOutlet internal var jobMark: UIImageView?
 	@IBOutlet internal var passwordMark: UIImageView?
 
-	@IBOutlet internal var nameFail: UIImageView?
 	@IBOutlet internal var emailFail: UIImageView?
-	@IBOutlet internal var jobFail: UIImageView?
 	@IBOutlet internal var passwordFail: UIImageView?
 
-	@IBOutlet internal var nameFailMsg: UILabel?
 	@IBOutlet internal var emailFailMsg: UILabel?
-	@IBOutlet internal var jobFailMsg: UILabel?
 	@IBOutlet internal var passwordFailMsg: UILabel?
 
-	@IBOutlet internal var titleLabel: UILabel?
-	@IBOutlet internal var nameLabel: UILabel?
 	@IBOutlet internal var emailLabel: UILabel?
-	@IBOutlet internal var jobLabel: UILabel?
 	@IBOutlet internal var passwordLabel: UILabel?
+
+	@IBOutlet internal var scrollView: UIScrollView?
 
 
 	internal var keyboardManager = KeyboardManager()
@@ -47,40 +39,20 @@ import LiferayScreens
 	internal var valid = false
 
 
-	override public var jobTitle: String? {
-		get {
-			return nullIfEmpty(jobField!.text)
-		}
-		set {
-			jobField!.text = newValue
-		}
-	}
-
-
 	//MARK: SignUpView
 
 	override public func onSetTranslations() {
-		firstNameField!.placeholder = LocalizedString("demo", "signup-first-name", self)
-		lastNameField!.placeholder = LocalizedString("demo", "signup-last-name", self)
-		emailAddressField!.placeholder = LocalizedString("demo", "signup-email", self)
+		userNameField!.placeholder = LocalizedString("demo", "signup-email", self)
 		passwordField!.placeholder = LocalizedString("demo", "signup-password", self)
-		jobField!.placeholder = LocalizedString("demo", "signup-job", self)
-		titleLabel!.text = LocalizedString("demo", "signup-title", self)
-		nameLabel!.text = LocalizedString("demo", "signup-name-title", self)
 		emailLabel!.text = LocalizedString("demo", "signup-email-title", self)
 		passwordLabel!.text = LocalizedString("demo", "signup-password-title", self)
-		jobLabel!.text = LocalizedString("demo", "signup-job-title", self)
-		nameFailMsg!.text = LocalizedString("demo", "signup-name-error", self)
 		emailFailMsg!.text = LocalizedString("demo", "signup-email-error", self)
-		jobFailMsg!.text = LocalizedString("demo", "signup-job-error", self)
 	}
 
 	override public func onCreated() {
 		scrollView?.contentSize = scrollView!.frame.size
 
-		initialSetup((nameMark!, nameFail!, nameFailMsg!))
 		initialSetup((emailMark!, emailFail!, emailFailMsg!))
-		initialSetup((jobMark!, jobFail!, jobFailMsg!))
 		initialSetup((passwordMark!, passwordFail!, passwordFailMsg!))
 
 		BaseScreenlet.setHUDCustomColor(DemoThemeBasicGreen)
@@ -111,9 +83,9 @@ import LiferayScreens
 		shake.duration = 0.08
 		shake.repeatCount = 4
 		shake.autoreverses = true
-		shake.fromValue = NSValue(CGPoint: CGPointMake(signUpButton!.center.x - 5, signUpButton!.center.y))
-		shake.toValue = NSValue(CGPoint: CGPointMake(signUpButton!.center.x + 5, signUpButton!.center.y))
-		signUpButton?.layer.addAnimation(shake, forKey: "position")
+		shake.fromValue = NSValue(CGPoint: CGPointMake(loginButton!.center.x - 5, loginButton!.center.y))
+		shake.toValue = NSValue(CGPoint: CGPointMake(loginButton!.center.x + 5, loginButton!.center.y))
+		loginButton?.layer.addAnimation(shake, forKey: "position")
 	}
 
 	private func initialSetup(images: (mark: UIImageView, fail: UIImageView, msg: UILabel)) {
@@ -180,10 +152,6 @@ import LiferayScreens
 
 	//MARK: UITextFieldDelegate
 
-	override public func textFieldDidBeginEditing(textField: UITextField) {
-		textInput = textField
-	}
-
 	public func textField(textField: UITextField!,
 			shouldChangeCharactersInRange range: NSRange,
 			replacementString string: String!)
@@ -201,19 +169,7 @@ import LiferayScreens
 		let bundle = NSBundle(forClass: self.dynamicType)
 
 		switch textField {
-			case firstNameField!:
-				mark = nameMark
-				fail = nameFail
-				label = nameLabel
-				msg = nameFailMsg
-				valid = (lastNameField!.text != "" && newText != "")
-			case lastNameField!:
-				mark = nameMark
-				fail = nameFail
-				label = nameLabel
-				msg = nameFailMsg
-				valid = (firstNameField!.text != "" && newText != "")
-			case emailAddressField!:
+			case userNameField!:
 				mark = emailMark
 				fail = emailFail
 				label = emailLabel
@@ -224,7 +180,8 @@ import LiferayScreens
 				fail = passwordFail
 				label = passwordLabel
 				msg = passwordFailMsg
-
+				valid = newText != ""
+/*
 				switch (newText.passwordStrengh) {
 					case (let strength)
 					where strength < 0.2:
@@ -263,17 +220,12 @@ import LiferayScreens
 								bundle: bundle,
 								value: "",
 								comment: "")
-						passwordFailMsg!.textColor = nameLabel!.textColor
+						passwordFailMsg!.textColor = passwordLabel!.textColor
 				}
 
 				preValidation = true
 				keepMessage = true
-			case jobField!:
-				mark = jobMark
-				fail = jobFail
-				label = jobLabel
-				msg = jobFailMsg
-				valid = (newText != "")
+*/
 			default: ()
 		}
 

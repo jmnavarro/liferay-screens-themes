@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		301076F05ECBC9022EC96097 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A51F59DE1CDC77444814DB2 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		88A331261B1CB57B00ED5B87 /* LoginView_demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A331241B1CB57B00ED5B87 /* LoginView_demo.swift */; };
+		88A331271B1CB57B00ED5B87 /* LoginView_demo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88A331251B1CB57B00ED5B87 /* LoginView_demo.xib */; };
 		88BDF9C51B009D6000F3DD5F /* LiferayScreensThemeDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = 88BDF9C41B009D6000F3DD5F /* LiferayScreensThemeDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		88BDF9E41B009FB400F3DD5F /* SignUpView_demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BDF9DE1B009FB400F3DD5F /* SignUpView_demo.swift */; };
 		88BDF9E51B009FB400F3DD5F /* SignUpView_demo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88BDF9DF1B009FB400F3DD5F /* SignUpView_demo.xib */; };
@@ -30,6 +32,8 @@
 /* Begin PBXFileReference section */
 		6291127CCD741DDF9008FB45 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7A51F59DE1CDC77444814DB2 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88A331241B1CB57B00ED5B87 /* LoginView_demo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView_demo.swift; sourceTree = "<group>"; };
+		88A331251B1CB57B00ED5B87 /* LoginView_demo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView_demo.xib; sourceTree = "<group>"; };
 		88BDF9BF1B009D6000F3DD5F /* LiferayScreensThemeDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LiferayScreensThemeDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88BDF9C31B009D6000F3DD5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88BDF9C41B009D6000F3DD5F /* LiferayScreensThemeDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiferayScreensThemeDemo.h; sourceTree = "<group>"; };
@@ -76,6 +80,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		88A331231B1CB57B00ED5B87 /* LoginScreenlet */ = {
+			isa = PBXGroup;
+			children = (
+				88A331241B1CB57B00ED5B87 /* LoginView_demo.swift */,
+				88A331251B1CB57B00ED5B87 /* LoginView_demo.xib */,
+			);
+			path = LoginScreenlet;
+			sourceTree = "<group>";
+		};
 		88BDF9B51B009D6000F3DD5F = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +132,7 @@
 		88BDF9DC1B009FB400F3DD5F /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				88A331231B1CB57B00ED5B87 /* LoginScreenlet */,
 				88BDF9DD1B009FB400F3DD5F /* SignUpScreenlet */,
 			);
 			path = Auth;
@@ -244,6 +258,7 @@
 			files = (
 				88BDF9E51B009FB400F3DD5F /* SignUpView_demo.xib in Resources */,
 				88BDFA0B1B00B2C400F3DD5F /* demo-check.png in Resources */,
+				88A331271B1CB57B00ED5B87 /* LoginView_demo.xib in Resources */,
 				88BDFA0E1B00B2C400F3DD5F /* demo-cross@2x.png in Resources */,
 				88BDFA0D1B00B2C400F3DD5F /* demo-cross.png in Resources */,
 				88BDFA0C1B00B2C400F3DD5F /* demo-check@2x.png in Resources */,
@@ -312,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88A331261B1CB57B00ED5B87 /* LoginView_demo.swift in Sources */,
 				88BDF9E81B009FB400F3DD5F /* DemoThemeConstants.swift in Sources */,
 				88BDF9E71B009FB400F3DD5F /* String+Validation.swift in Sources */,
 				88BDF9E41B009FB400F3DD5F /* SignUpView_demo.swift in Sources */,
