@@ -15,7 +15,7 @@ import UIKit
 import LiferayScreens
 
 
-public class SignUpView_demo: SignUpView_default, KeyboardLayoutable {
+@IBDesignable public class SignUpView_demo: SignUpView_default, KeyboardLayoutable {
 
 	@IBOutlet internal var jobField: UITextField?
 
