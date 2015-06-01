@@ -1,6 +1,5 @@
 Pod::Spec.new do |s|
-	s.name         = 'LiferayScreensTheme-Demo'
-	s.module_name  = 'LiferayScreensThemeDemo'
+	s.name         = 'LiferayScreensThemeDemo'
 	s.version      = '0.1'
 	s.summary      = 'A sample theme for Liferay Screens'
 	s.homepage     = 'https://www.liferay.com/liferay-screens'
@@ -18,15 +17,11 @@ Pod::Spec.new do |s|
 	}
 	s.social_media_url = 'http://twitter.com/jmnavarro'
 	
-	s.platform = :ios
-	s.ios.deployment_target = '8.0'
+	s.platform = :ios, '8.0'
 	s.requires_arc = true
 
 	s.source_files = 'Source/DemoTheme/**/*.{h,m,swift}'
-
-	s.resource_bundle = {
-		'LiferayScreens-demo' => 'Source/DemoTheme/**/*.{xib,png,plist,lproj}'
-	}
+	s.resources = 'Source/DemoTheme/Resources/**/*.{xib,png,plist,lproj}'
 	
 	s.dependency 'LiferayScreens'
 
