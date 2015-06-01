@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
 	s.requires_arc = true
 
 	s.source_files = 'Source/DemoTheme/**/*.{h,m,swift}'
-	s.resources = 'Source/DemoTheme/Resources/**/*.{xib,png,plist,lproj}'
+	s.resources = 'Source/DemoTheme/**/*.{xib,png,plist,lproj}'
 	
 	s.dependency 'LiferayScreens'
 
