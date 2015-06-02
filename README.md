@@ -1,5 +1,9 @@
-# NewAge
-This is a demo theme supporting only [SignUpScreenlet](https://github.com/liferay/liferay-screens/blob/master/ios/Documentation/SignUpScreenlet.md)
+# Demo theme
+This is a demo theme supporting the following screenlets
+  - [LoginScreenlet](https://github.com/liferay/liferay-screens/blob/master/ios/Documentation/LoginScreenlet.md)
+  - [SignUpScreenlet](https://github.com/liferay/liferay-screens/blob/master/ios/Documentation/SignUpScreenlet.md)
+  - [DDLFormScreenlet](https://github.com/liferay/liferay-screens/blob/master/ios/Documentation/DDLFormScreenlet.md)
+
 
 ![SignUpScreenlet with Demo theme](demo-sample.png)
 
