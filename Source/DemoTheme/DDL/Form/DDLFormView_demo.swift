@@ -17,10 +17,4 @@ import LiferayScreens
 
 public class DDLFormView_demo: DDLFormView_default {
 
-	override public func onCreated() {
-		super.onCreated()
-
-		BaseScreenlet.setHUDCustomColor(DemoThemeBasicGreen)
-	}
-
 }

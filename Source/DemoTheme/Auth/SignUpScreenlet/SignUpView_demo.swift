@@ -82,8 +82,6 @@ import LiferayScreens
 		initialSetup((emailMark!, emailFail!, emailFailMsg!))
 		initialSetup((jobMark!, jobFail!, jobFailMsg!))
 		initialSetup((passwordMark!, passwordFail!, passwordFailMsg!))
-
-		BaseScreenlet.setHUDCustomColor(DemoThemeBasicGreen)
 	}
 
 	override public func onShow() {
