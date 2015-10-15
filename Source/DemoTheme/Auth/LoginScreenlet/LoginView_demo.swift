@@ -31,6 +31,9 @@ import LiferayScreens
 
 	@IBOutlet internal var scrollView: UIScrollView?
 
+	@IBOutlet weak var spinner: UIActivityIndicatorView?
+	@IBOutlet weak var progressView: UIView?
+
 
 	internal var keyboardManager = KeyboardManager()
 	internal var originalFrame: CGRect?
@@ -54,8 +57,14 @@ import LiferayScreens
 
 		initialSetup((emailMark!, emailFail!, emailFailMsg!))
 		initialSetup((passwordMark!, passwordFail!, passwordFailMsg!))
+	}
 
-		BaseScreenlet.setHUDCustomColor(DemoThemeBasicGreen)
+	override public func createProgressPresenter() -> ProgressPresenter {
+		if let spinner = self.spinner {
+			return DemoProgressPresenter(spinner: spinner, progressView: progressView)
+		}
+
+		return super.createProgressPresenter()
 	}
 
 	override public func onShow() {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -96,15 +96,33 @@
                         <outletCollection property="gestureRecognizers" destination="UTj-yx-A1q" appends="YES" id="ca9-v1-cjk"/>
                     </connections>
                 </scrollView>
-                <button opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" restorationIdentifier="login-action" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="kq3-Yb-Mpp">
-                    <rect key="frame" x="-5" y="423" width="330" height="60"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.13333334028720856" green="0.75294125080108643" blue="0.39215689897537231" alpha="1" colorSpace="deviceRGB"/>
-                    <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
-                    <state key="normal" image="demo-check.png">
-                        <attributedString key="attributedTitle"/>
-                    </state>
-                </button>
+                <view contentMode="scaleToFill" id="IAt-WX-OeL">
+                    <rect key="frame" x="0.0" y="403" width="320" height="60"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <subviews>
+                        <button opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" restorationIdentifier="login-action" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="kq3-Yb-Mpp">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.13333334028720856" green="0.75294125080108643" blue="0.39215689897537231" alpha="1" colorSpace="deviceRGB"/>
+                            <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                            <state key="normal" image="demo-check.png">
+                                <attributedString key="attributedTitle"/>
+                            </state>
+                        </button>
+                        <view hidden="YES" contentMode="scaleToFill" id="ldM-Tb-Eak">
+                            <rect key="frame" x="145" y="15" width="30" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" id="AfG-Yw-SSU">
+                                    <rect key="frame" x="5" y="5" width="20" height="20"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </activityIndicatorView>
+                            </subviews>
+                            <color key="backgroundColor" red="0.13333334029999999" green="0.75294125079999996" blue="0.392156899" alpha="1" colorSpace="deviceRGB"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
@@ -120,7 +138,9 @@
                 <outlet property="passwordField" destination="W3r-i1-nYQ" id="9rm-ph-tvT"/>
                 <outlet property="passwordLabel" destination="lUO-lO-L6v" id="NEA-Hk-qF7"/>
                 <outlet property="passwordMark" destination="6ao-l1-0X9" id="udn-uq-zV9"/>
+                <outlet property="progressView" destination="ldM-Tb-Eak" id="Shh-Nx-Kz8"/>
                 <outlet property="scrollView" destination="o29-yh-7hX" id="Vxz-1f-dPn"/>
+                <outlet property="spinner" destination="AfG-Yw-SSU" id="F5r-rS-wKX"/>
                 <outlet property="userNameField" destination="lQM-e9-Lbg" id="HIF-y9-UbN"/>
             </connections>
             <point key="canvasLocation" x="198" y="278.5"/>
