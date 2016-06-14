@@ -60,19 +60,19 @@ import LiferayScreens
 	//MARK: SignUpView
 
 	override public func onSetTranslations() {
-		firstNameField!.placeholder = LocalizedString("demo", "signup-first-name", self)
-		lastNameField!.placeholder = LocalizedString("demo", "signup-last-name", self)
-		emailAddressField!.placeholder = LocalizedString("demo", "signup-email", self)
-		passwordField!.placeholder = LocalizedString("demo", "signup-password", self)
-		jobField!.placeholder = LocalizedString("demo", "signup-job", self)
-		titleLabel!.text = LocalizedString("demo", "signup-title", self)
-		nameLabel!.text = LocalizedString("demo", "signup-name-title", self)
-		emailLabel!.text = LocalizedString("demo", "signup-email-title", self)
-		passwordLabel!.text = LocalizedString("demo", "signup-password-title", self)
-		jobLabel!.text = LocalizedString("demo", "signup-job-title", self)
-		nameFailMsg!.text = LocalizedString("demo", "signup-name-error", self)
-		emailFailMsg!.text = LocalizedString("demo", "signup-email-error", self)
-		jobFailMsg!.text = LocalizedString("demo", "signup-job-error", self)
+		firstNameField!.placeholder = LocalizedString("demo", key: "signup-first-name", obj: self)
+		lastNameField!.placeholder = LocalizedString("demo", key: "signup-last-name", obj: self)
+		emailAddressField!.placeholder = LocalizedString("demo", key: "signup-email", obj: self)
+		passwordField!.placeholder = LocalizedString("demo", key: "signup-password", obj: self)
+		jobField!.placeholder = LocalizedString("demo", key: "signup-job", obj: self)
+		titleLabel!.text = LocalizedString("demo", key: "signup-title", obj: self)
+		nameLabel!.text = LocalizedString("demo", key: "signup-name-title", obj: self)
+		emailLabel!.text = LocalizedString("demo", key: "signup-email-title", obj: self)
+		passwordLabel!.text = LocalizedString("demo", key: "signup-password-title", obj: self)
+		jobLabel!.text = LocalizedString("demo", key: "signup-job-title", obj: self)
+		nameFailMsg!.text = LocalizedString("demo", key: "signup-name-error", obj: self)
+		emailFailMsg!.text = LocalizedString("demo", key: "signup-email-error", obj: self)
+		jobFailMsg!.text = LocalizedString("demo", key: "signup-job-error", obj: self)
 	}
 
 	override public func onCreated() {
@@ -92,7 +92,7 @@ import LiferayScreens
 		keyboardManager.unregisterObserver()
 	}
 
-	override public func onPreAction(#name: String?, sender: AnyObject?) -> Bool {
+	override public func onPreAction(name name: String?, sender: AnyObject?) -> Bool {
 		if name == "signup-action" {
 			if !valid {
 				shakeEffect()
@@ -153,7 +153,7 @@ import LiferayScreens
 
 				UIView.animateWithDuration(animation.time.doubleValue,
 						delay: 0.0,
-						options: UIViewAnimationOptions(animation.curve.unsignedLongValue),
+						options: UIViewAnimationOptions(rawValue: animation.curve.unsignedLongValue),
 						animations: {
 							self.frame = CGRectMake(
 									self.frame.origin.x,
@@ -187,7 +187,10 @@ import LiferayScreens
 			replacementString string: String!)
 			-> Bool {
 
-		let newText = (textField.text as NSString).stringByReplacingCharactersInRange(range, withString:string)
+		let startIndex = textField.text!.startIndex.advancedBy(range.location)
+		let newRange = startIndex..<startIndex.advancedBy(range.length)
+
+		let newText = textField.text!.stringByReplacingCharactersInRange(newRange, withString:string)
 
 		var mark: UIImageView?
 		var fail: UIImageView?

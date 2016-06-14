@@ -19,3 +19,6 @@
 "demo-signup-password-error-2"="Todavía insegura";
 "demo-signup-password-error-3"="Contraseña suficiente";
 "demo-signup-password-error-4"="¡Contraseña segura!";
+
+"demo-login-password-error-1"="Contraseña muy corta";
+"demo-login-password-error-2"="Contraseña parece válida";

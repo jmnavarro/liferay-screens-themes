@@ -19,3 +19,6 @@
 "demo-signup-password-error-2"="Too weak password, still";
 "demo-signup-password-error-3"="Valid enough password";
 "demo-signup-password-error-4"="You password is secure!";
+
+"demo-login-password-error-1"="Password is too short";
+"demo-login-password-error-2"="Password seems valid";

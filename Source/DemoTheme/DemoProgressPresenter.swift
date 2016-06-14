@@ -15,7 +15,7 @@ import Foundation
 import LiferayScreens
 
 
-@objc public class DemoProgressPresenter: MBProgressHUDPresenter {
+public class DemoProgressPresenter: MBProgressHUDPresenter {
 
 	private let _spinner: UIActivityIndicatorView
 	private let _progressView: UIView?

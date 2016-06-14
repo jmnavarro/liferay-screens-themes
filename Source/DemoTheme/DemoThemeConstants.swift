@@ -11,7 +11,7 @@
 * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
 * details.
 */
-import Foundation
+import UIKit
 
 
 let DemoThemeBasicGreen = UIColor(red: 34.0/255, green: 192.0/255, blue: 100.0/255, alpha: 1)

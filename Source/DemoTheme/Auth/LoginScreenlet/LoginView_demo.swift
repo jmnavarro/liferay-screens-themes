@@ -45,11 +45,11 @@ import LiferayScreens
 	//MARK: SignUpView
 
 	override public func onSetTranslations() {
-		userNameField!.placeholder = LocalizedString("demo", "signup-email", self)
-		passwordField!.placeholder = LocalizedString("demo", "signup-password", self)
-		emailLabel!.text = LocalizedString("demo", "signup-email-title", self)
-		passwordLabel!.text = LocalizedString("demo", "signup-password-title", self)
-		emailFailMsg!.text = LocalizedString("demo", "signup-email-error", self)
+		userNameField!.placeholder = LocalizedString("demo", key: "signup-email", obj: self)
+		passwordField!.placeholder = LocalizedString("demo", key: "signup-password", obj: self)
+		emailLabel!.text = LocalizedString("demo", key: "signup-email-title", obj: self)
+		passwordLabel!.text = LocalizedString("demo", key: "signup-password-title", obj: self)
+		emailFailMsg!.text = LocalizedString("demo", key: "signup-email-error", obj: self)
 	}
 
 	override public func onCreated() {
@@ -75,8 +75,8 @@ import LiferayScreens
 		keyboardManager.unregisterObserver()
 	}
 
-	override public func onPreAction(#name: String?, sender: AnyObject?) -> Bool {
-		if name == "signup-action" {
+	override public func onPreAction(name name: String?, sender: AnyObject?) -> Bool {
+		if name == "login-action" {
 			if !valid {
 				shakeEffect()
 			}
@@ -98,7 +98,6 @@ import LiferayScreens
 	}
 
 	private func initialSetup(images: (mark: UIImageView, fail: UIImageView, msg: UILabel)) {
-
 		images.msg.frame.origin.x = self.frame.size.width + 5
 
 		images.mark.alpha = 0
@@ -136,7 +135,7 @@ import LiferayScreens
 
 				UIView.animateWithDuration(animation.time.doubleValue,
 						delay: 0.0,
-						options: UIViewAnimationOptions(animation.curve.unsignedLongValue),
+						options: UIViewAnimationOptions(rawValue: animation.curve.unsignedLongValue),
 						animations: {
 							self.frame = CGRectMake(
 									self.frame.origin.x,
@@ -170,7 +169,10 @@ import LiferayScreens
 			replacementString string: String!)
 			-> Bool {
 
-		let newText = (textField.text as NSString).stringByReplacingCharactersInRange(range, withString:string)
+		let startIndex = textField.text!.startIndex.advancedBy(range.location)
+		let newRange = startIndex..<startIndex.advancedBy(range.length)
+
+		let newText = textField.text!.stringByReplacingCharactersInRange(newRange, withString:string)
 
 		var mark: UIImageView?
 		var fail: UIImageView?
@@ -188,57 +190,38 @@ import LiferayScreens
 				label = emailLabel
 				msg = emailFailMsg
         		valid = newText.isValidEmail
+
+				preValidation = true
+				keepMessage = false
+
 			case passwordField!:
 				mark = passwordMark
 				fail = passwordFail
 				label = passwordLabel
 				msg = passwordFailMsg
-				valid = newText != ""
-/*
-				switch (newText.passwordStrengh) {
-					case (let strength)
-					where strength < 0.2:
-						valid = false
-						passwordFailMsg!.text = NSLocalizedString("demo-signup-password-error-1",
-								tableName: "demo",
-								bundle: bundle,
-								value: "",
-								comment: "")
-						passwordFailMsg!.textColor = UIColor.redColor()
 
-					case (let strength)
-					where strength < 0.3:
-						valid = false
-						passwordFailMsg!.text = NSLocalizedString("demo-signup-password-error-2",
-								tableName: "demo",
-								bundle: bundle,
-								value: "",
-								comment: "")
-						passwordFailMsg!.textColor = UIColor.redColor()
-
-					case (let strength)
-					where strength < 0.4:
-						valid = true
-						passwordFailMsg!.text = NSLocalizedString("demo-signup-password-error-3",
-								tableName: "demo",
-								bundle: bundle,
-								value: "",
-								comment: "")
-						passwordFailMsg!.textColor = UIColor.orangeColor()
-
-					default:
-						valid = true
-						passwordFailMsg!.text = NSLocalizedString("demo-signup-password-error-4",
-								tableName: "demo",
-								bundle: bundle,
-								value: "",
-								comment: "")
-						passwordFailMsg!.textColor = passwordLabel!.textColor
+				if newText.characters.count < 4 {
+					valid = false
+					passwordFailMsg!.text = NSLocalizedString("demo-login-password-error-1",
+					                                          tableName: "demo",
+					                                          bundle: bundle,
+					                                          value: "",
+					                                          comment: "")
+					passwordFailMsg!.textColor = UIColor.redColor()
+				}
+				else {
+					valid = true
+					passwordFailMsg!.text = NSLocalizedString("demo-login-password-error-2",
+					                                          tableName: "demo",
+					                                          bundle: bundle,
+					                                          value: "",
+					                                          comment: "")
+					passwordFailMsg!.textColor = passwordLabel!.textColor
 				}
 
 				preValidation = true
 				keepMessage = true
-*/
+
 			default: ()
 		}
 

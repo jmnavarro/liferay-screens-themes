@@ -2,8 +2,8 @@
 //  LiferayScreensThemeDemo.h
 //  LiferayScreensThemeDemo
 //
-//  Created by jmWork on 11/05/15.
-//  Copyright (c) 2015 Liferay. All rights reserved.
+//  Created by jmWork on 14/06/16.
+//  Copyright © 2016 Liferay. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

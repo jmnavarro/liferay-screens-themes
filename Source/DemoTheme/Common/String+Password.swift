@@ -16,25 +16,25 @@ import Foundation
 extension String {
 
 	public var isLargeEnough: Bool {
-		return count(self) > 5
+		return self.characters.count > 5
 	}
 
 	public var hasDigits: Bool {
 		let nonDigits = NSCharacterSet.decimalDigitCharacterSet().invertedSet
 		let numbers = self.componentsSeparatedByCharactersInSet(nonDigits)
-		return ("".join(numbers) != "")
+		return (numbers.joinWithSeparator("") != "")
 	}
 
 	public var hasUppercase: Bool {
 		let nonUpperCase = NSCharacterSet.uppercaseLetterCharacterSet().invertedSet
 		let letters = self.componentsSeparatedByCharactersInSet(nonUpperCase)
-		return ("".join(letters) != "")
+		return (letters.joinWithSeparator("") != "")
 	}
 
 	public var hasLowercase: Bool {
 		let nonLowerCase = NSCharacterSet.lowercaseLetterCharacterSet().invertedSet
 		let letters = self.componentsSeparatedByCharactersInSet(nonLowerCase)
-		return ("".join(letters) != "")
+		return (letters.joinWithSeparator("") != "")
 	}
 
 	public var passwordStrengh: Double {
