@@ -15,5 +15,3 @@ import UIKit
 
 
 let DemoThemeBasicGreen = UIColor(red: 34.0/255, green: 192.0/255, blue: 100.0/255, alpha: 1)
-
-
