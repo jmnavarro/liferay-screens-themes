@@ -29,32 +29,19 @@ public class DemoProgressPresenter: MBProgressHUDPresenter {
 		super.init()
 	}
 
-	public override func showHUDInView(view: UIView,
-			message: String?,
-			closeMode: ProgressCloseMode,
-			spinnerMode: ProgressSpinnerMode) {
-
-		hideHUD()
-
-		if spinnerMode == .NoSpinner {
-			super.showHUDInView(view,
-				message: message,
-				closeMode: closeMode,
-				spinnerMode: spinnerMode)
-		}
-		else {
-			_spinner.startAnimating()
-			(_progressView ?? _spinner).hidden = false
-		}
+	public override func showHUDInView(view: UIView, message: String?, forInteractor interactor: Interactor) {
+		_spinner.startAnimating()
+		(_progressView ?? _spinner).hidden = false
 	}
 
-	public override func hideHUD() {
-		if !(_progressView ?? _spinner).hidden {
+	public override func hideHUDFromView(view: UIView?, message: String?, forInteractor interactor: Interactor, withError error: NSError?) {
+
+		if message != nil || (_progressView ?? _spinner).hidden {
 			_spinner.stopAnimating()
 			(_progressView ?? _spinner).hidden = true
 		}
 		else {
-			super.hideHUD()
+			super.hideHUDFromView(view, message: message, forInteractor: interactor, withError: error)
 		}
 	}
 
