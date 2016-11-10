@@ -36,13 +36,8 @@ public class DemoProgressPresenter: MBProgressHUDPresenter {
 
 	public override func hideHUDFromView(view: UIView?, message: String?, forInteractor interactor: Interactor, withError error: NSError?) {
 
-		if message != nil || (_progressView ?? _spinner).hidden {
-			_spinner.stopAnimating()
-			(_progressView ?? _spinner).hidden = true
-		}
-		else {
-			super.hideHUDFromView(view, message: message, forInteractor: interactor, withError: error)
-		}
+		_spinner.stopAnimating()
+		(_progressView ?? _spinner).hidden = true
 	}
 
 }
