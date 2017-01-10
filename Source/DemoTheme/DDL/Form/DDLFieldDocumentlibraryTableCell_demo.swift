@@ -18,7 +18,7 @@ import LiferayScreens
 public class DDLFieldDocumentlibraryTableCell_demo: DDLFieldDocumentlibraryTableCell_default {
 
 	@IBOutlet weak var chooseButton: UIButton?
-	
+
 	public override func awakeFromNib() {
 		super.awakeFromNib()
 
