@@ -178,7 +178,7 @@ import LiferayScreens
 
 	//MARK: UITextFieldDelegate
 
-	override public func textFieldDidBeginEditing(textField: UITextField) {
+	public func textFieldDidBeginEditing(textField: UITextField) {
 		textInput = textField
 	}
 
