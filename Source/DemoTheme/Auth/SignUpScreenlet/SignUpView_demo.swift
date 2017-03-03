@@ -183,17 +183,9 @@ import LiferayScreens
 		textInput = textField
 	}
 
-	public func textField(textField: UITextField!,
-			shouldChangeCharactersInRange range: NSRange,
-			replacementString string: String!)
-			-> Bool {
+	public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
-		/*NOT SURE*/
-		let startIndex = textField.text!.index(textField.text!.startIndex, offsetBy: range.location)
-		let newRange = startIndex..<textField.text!.index(startIndex, offsetBy: range.length)
-
-
-		let newText = textField.text!.replacingCharacters(in: newRange, with:string)
+		let newText = textField.text!
 
 		var mark: UIImageView?
 		var fail: UIImageView?
@@ -205,89 +197,89 @@ import LiferayScreens
 		let bundle = Bundle(for: type(of: self))
 
 		switch textField {
-			case firstNameField!:
-				mark = nameMark
-				fail = nameFail
-				label = nameLabel
-				msg = nameFailMsg
-				valid = (lastNameField!.text != "" && newText != "")
-			case lastNameField!:
-				mark = nameMark
-				fail = nameFail
-				label = nameLabel
-				msg = nameFailMsg
-				valid = (firstNameField!.text != "" && newText != "")
-			case emailAddressField!:
-				mark = emailMark
-				fail = emailFail
-				label = emailLabel
-				msg = emailFailMsg
-        		valid = newText.isValidEmail
-			case passwordField!:
-				mark = passwordMark
-				fail = passwordFail
-				label = passwordLabel
-				msg = passwordFailMsg
+		case firstNameField!:
+			mark = nameMark
+			fail = nameFail
+			label = nameLabel
+			msg = nameFailMsg
+			valid = (lastNameField!.text != "" && newText != "")
+		case lastNameField!:
+			mark = nameMark
+			fail = nameFail
+			label = nameLabel
+			msg = nameFailMsg
+			valid = (firstNameField!.text != "" && newText != "")
+		case emailAddressField!:
+			mark = emailMark
+			fail = emailFail
+			label = emailLabel
+			msg = emailFailMsg
+			valid = newText.isValidEmail
+		case passwordField!:
+			mark = passwordMark
+			fail = passwordFail
+			label = passwordLabel
+			msg = passwordFailMsg
 
-				switch (newText.passwordStrengh) {
-					case (let strength)
-					where strength < 0.2:
-						valid = false
-						passwordFailMsg!.text = NSLocalizedString("demo-signup-password-error-1",
-								tableName: "demo",
-								bundle: bundle,
-								value: "",
-								comment: "")
-						passwordFailMsg!.textColor = UIColor.red
+			switch (newText.passwordStrengh) {
+			case (let strength)
+				where strength < 0.2:
+				valid = false
+				passwordFailMsg!.text = NSLocalizedString("demo-signup-password-error-1",
+				                                          tableName: "demo",
+				                                          bundle: bundle,
+				                                          value: "",
+				                                          comment: "")
+				passwordFailMsg!.textColor = UIColor.red
 
-					case (let strength)
-					where strength < 0.3:
-						valid = false
-						passwordFailMsg!.text = NSLocalizedString("demo-signup-password-error-2",
-								tableName: "demo",
-								bundle: bundle,
-								value: "",
-								comment: "")
-						passwordFailMsg!.textColor = UIColor.red
+			case (let strength)
+				where strength < 0.3:
+				valid = false
+				passwordFailMsg!.text = NSLocalizedString("demo-signup-password-error-2",
+				                                          tableName: "demo",
+				                                          bundle: bundle,
+				                                          value: "",
+				                                          comment: "")
+				passwordFailMsg!.textColor = UIColor.red
 
-					case (let strength)
-					where strength < 0.4:
-						valid = true
-						passwordFailMsg!.text = NSLocalizedString("demo-signup-password-error-3",
-								tableName: "demo",
-								bundle: bundle,
-								value: "",
-								comment: "")
-						passwordFailMsg!.textColor = UIColor.orange
+			case (let strength)
+				where strength < 0.4:
+				valid = true
+				passwordFailMsg!.text = NSLocalizedString("demo-signup-password-error-3",
+				                                          tableName: "demo",
+				                                          bundle: bundle,
+				                                          value: "",
+				                                          comment: "")
+				passwordFailMsg!.textColor = UIColor.orange
 
-					default:
-						valid = true
-						passwordFailMsg!.text = NSLocalizedString("demo-signup-password-error-4",
-								tableName: "demo",
-								bundle: bundle,
-								value: "",
-								comment: "")
-						passwordFailMsg!.textColor = nameLabel!.textColor
-				}
-
-				preValidation = true
-				keepMessage = true
-			case jobField!:
-				mark = jobMark
-				fail = jobFail
-				label = jobLabel
-				msg = jobFailMsg
-				valid = (newText != "")
-			default: ()
+			default:
+				valid = true
+				passwordFailMsg!.text = NSLocalizedString("demo-signup-password-error-4",
+				                                          tableName: "demo",
+				                                          bundle: bundle,
+				                                          value: "",
+				                                          comment: "")
+				passwordFailMsg!.textColor = nameLabel!.textColor
+			}
+			
+			preValidation = true
+			keepMessage = true
+		case jobField!:
+			mark = jobMark
+			fail = jobFail
+			label = jobLabel
+			msg = jobFailMsg
+			valid = (newText != "")
+		default: ()
 		}
-
+		
 		if valid {
 			hideValidationError(controls: (mark!, fail!, label!, msg!), keepMessage: keepMessage)
 		}
 		else {
 			showValidationError(controls: (mark!, fail!, label!, msg!), preValidation: preValidation)
 		}
-
+		
 		return true
 	}
 

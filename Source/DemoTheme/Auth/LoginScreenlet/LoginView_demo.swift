@@ -159,20 +159,16 @@ import LiferayScreens
 
 	//MARK: UITextFieldDelegate
 
+
+
 	public func textFieldDidBeginEditing(textField: UITextField) {
 		textInput = textField
 	}
 
-	public func textField(textField: UITextField!,
-			shouldChangeCharactersInRange range: NSRange,
-			replacementString string: String!)
-			-> Bool {
+	public func textField(_ textField: UITextField, shouldChangeCharactersInRange range: NSRange,
+			replacementString string: String) -> Bool {
 
-		/*NOT SURE*/
-		let startIndex = textField.text!.index(textField.text!.startIndex, offsetBy: range.location)
-		let newRange = startIndex..<textField.text!.index(startIndex, offsetBy: range.length)
-
-		let newText = textField.text!.replacingCharacters(in: newRange, with: string)
+		let newText = textField.text!
 
 		var mark: UIImageView?
 		var fail: UIImageView?
@@ -200,7 +196,7 @@ import LiferayScreens
 				label = passwordLabel
 				msg = passwordFailMsg
 
-				if newText.characters.count < 4 {
+				if newText.characters.count < 3 {
 					valid = false
 					passwordFailMsg!.text = NSLocalizedString("demo-login-password-error-1",
 					                                          tableName: "demo",
