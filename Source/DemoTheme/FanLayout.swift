@@ -20,13 +20,13 @@ public class FanCollectionViewLayoutAttributes: UICollectionViewLayoutAttributes
 	var angle: CGFloat = 0 {
 		didSet {
 			zIndex = Int(angle * 1000000)
-			transform = CGAffineTransformMakeRotation(angle)
+			transform = CGAffineTransform(rotationAngle: angle)
 		}
 	}
 
-	override public func copyWithZone(zone: NSZone) -> AnyObject {
+	override public func copy(with zone: NSZone?) -> Any {
 		let copiedAttributes: FanCollectionViewLayoutAttributes =
-			super.copyWithZone(zone) as! FanCollectionViewLayoutAttributes
+			super.copy(with: zone) as! FanCollectionViewLayoutAttributes
 		copiedAttributes.anchorPoint = self.anchorPoint
 		copiedAttributes.angle = self.angle
 		return copiedAttributes
@@ -46,47 +46,48 @@ public class FanLayout: UICollectionViewLayout {
 	}
 
 	var angleAtExtreme: CGFloat {
-		return collectionView!.numberOfItemsInSection(0) > 0 ?
-			-CGFloat(collectionView!.numberOfItemsInSection(0) - 1) * anglePerItem : 0
+		return collectionView!.numberOfItems(inSection: 0) > 0 ?
+			-CGFloat(collectionView!.numberOfItems(inSection: 0) - 1) * anglePerItem : 0
 	}
 	var angle: CGFloat {
-		return angleAtExtreme * collectionView!.contentOffset.x / (collectionViewContentSize().width
-			- CGRectGetWidth(collectionView!.bounds))
+		return angleAtExtreme * collectionView!.contentOffset.x / (collectionViewContentSize.width
+			- collectionView!.bounds.width)
 	}
 
 	var anglePerItem: CGFloat {
 		return atan(itemSize.width / radius)
 	}
 
-	override public func collectionViewContentSize() -> CGSize {
-		if (collectionView?.numberOfSections() == 0) {
+	override public var collectionViewContentSize: CGSize {
+		if collectionView?.numberOfSections == 0 {
 			return CGSize.zero
 		}
+
 		return CGSize(
-				width: CGFloat(collectionView!.numberOfItemsInSection(0) * Int(itemSize.width)),
-				height: CGRectGetWidth(collectionView!.bounds))
+			width: CGFloat(collectionView!.numberOfItems(inSection: 0) * Int(itemSize.width)),
+				height: CGFloat(collectionView!.bounds.height))
 	}
 
-	override public class func layoutAttributesClass() -> AnyClass {
+	override open class var layoutAttributesClass: AnyClass {
 		return FanCollectionViewLayoutAttributes.self
 	}
 
-	override public func prepareLayout() {
-		super.prepareLayout()
+	override public func prepare() {
+		super.prepare()
 
 		let anchorPointY = ((itemSize.height / 2.0) + radius) / itemSize.height
 		let centerX = collectionView!.contentOffset.x +
-				(CGRectGetWidth(collectionView!.bounds) / 2.0)
+				(collectionView!.bounds.width / 2.0)
 
-		if (collectionView?.numberOfSections() != 0) {
+		if collectionView?.numberOfSections != 0 {
 
-			let theta = atan2(CGRectGetWidth(collectionView!.bounds)/2.0, radius +
-					(itemSize.height/2.0) - (CGRectGetHeight(collectionView!.bounds)/2.0))
+			let theta = atan2(collectionView!.bounds.width/2.0, radius +
+					(itemSize.height/2.0) - (collectionView!.bounds.height/2.0))
 
 			var startIndex = 0
-			var endIndex = collectionView!.numberOfItemsInSection(0) - 1
+			var endIndex = collectionView!.numberOfItems(inSection: 0) - 1
 
-			if (angle < -theta) {
+			if angle < -theta {
 				startIndex = Int(floor((-theta - angle)/anglePerItem))
 			}
 
@@ -106,11 +107,10 @@ public class FanLayout: UICollectionViewLayout {
 				print(endIndex)
 
 				let attributes = FanCollectionViewLayoutAttributes(
-						forCellWithIndexPath: NSIndexPath(forItem: i,
-						inSection: 0))
+						forCellWith: IndexPath(item: i, section: 0))
 
 				attributes.size = self.itemSize
-				attributes.center = CGPoint(x: centerX, y: CGRectGetMidY(self.collectionView!.bounds))
+				attributes.center = CGPoint(x: centerX, y: self.collectionView!.bounds.midY)
 				attributes.angle = self.angle + (self.anglePerItem * CGFloat(i))
 				attributes.anchorPoint = CGPoint(x: 0.5, y: anchorPointY)
 
@@ -119,13 +119,13 @@ public class FanLayout: UICollectionViewLayout {
 		}
 	}
 
-	override public func layoutAttributesForElementsInRect(rect: CGRect)
+	override public func layoutAttributesForElements(in rect: CGRect)
 			-> [UICollectionViewLayoutAttributes]? {
 			
 		return attributesList
 	}
 
-	override public func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath)
+	override public func layoutAttributesForItem(at indexPath: IndexPath)
 		-> UICollectionViewLayoutAttributes {
 
 			if (attributesList.count > indexPath.row) {
@@ -135,7 +135,7 @@ public class FanLayout: UICollectionViewLayout {
 			return attributesList.first!
 		}
 
-	override public func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
+	override public func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
 		return true
 	}
 }

@@ -24,20 +24,23 @@ public class DemoProgressPresenter: MBProgressHUDPresenter {
 		_spinner = spinner
 		_progressView = progressView
 
-		(_progressView ?? spinner).hidden = true
+		(_progressView ?? spinner).isHidden = true
 
 		super.init()
 	}
 
-	public override func showHUDInView(view: UIView, message: String?, forInteractor interactor: Interactor) {
+	public override func showHUDInView(_ view: UIView, message: String?,
+		forInteractor interactor: Interactor) {
+
 		_spinner.startAnimating()
-		(_progressView ?? _spinner).hidden = false
+		(_progressView ?? _spinner).isHidden = false
 	}
 
-	public override func hideHUDFromView(view: UIView?, message: String?, forInteractor interactor: Interactor, withError error: NSError?) {
+	public override func hideHUDFromView(_ view: UIView?, message: String?,
+		forInteractor interactor: Interactor, withError error: NSError?) {
 
 		_spinner.stopAnimating()
-		(_progressView ?? _spinner).hidden = true
+		(_progressView ?? _spinner).isHidden = true
 	}
 
 }

@@ -20,21 +20,21 @@ extension String {
 	}
 
 	public var hasDigits: Bool {
-		let nonDigits = NSCharacterSet.decimalDigitCharacterSet().invertedSet
-		let numbers = self.componentsSeparatedByCharactersInSet(nonDigits)
-		return (numbers.joinWithSeparator("") != "")
+		let nonDigits = NSCharacterSet.decimalDigits.inverted
+		let numbers = self.components(separatedBy: nonDigits)
+		return (numbers.joined(separator: "") != "")
 	}
 
 	public var hasUppercase: Bool {
-		let nonUpperCase = NSCharacterSet.uppercaseLetterCharacterSet().invertedSet
-		let letters = self.componentsSeparatedByCharactersInSet(nonUpperCase)
-		return (letters.joinWithSeparator("") != "")
+		let nonUpperCase = CharacterSet.uppercaseLetters.inverted
+		let letters = self.components(separatedBy: nonUpperCase)
+		return (letters.joined(separator: "") != "")
 	}
 
 	public var hasLowercase: Bool {
-		let nonLowerCase = NSCharacterSet.lowercaseLetterCharacterSet().invertedSet
-		let letters = self.componentsSeparatedByCharactersInSet(nonLowerCase)
-		return (letters.joinWithSeparator("") != "")
+		let nonLowerCase = CharacterSet.lowercaseLetters.inverted
+		let letters = self.components(separatedBy: nonLowerCase)
+		return (letters.joined(separator: "") != "")
 	}
 
 	public var passwordStrengh: Double {
