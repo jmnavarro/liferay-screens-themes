@@ -91,8 +91,13 @@ import LiferayScreens
 		shake.duration = 0.08
 		shake.repeatCount = 4
 		shake.autoreverses = true
-		shake.fromValue = NSValue(cgPoint: CGPoint(x: loginButton!.center.x - 5, y: loginButton!.center.y))
-		shake.toValue = NSValue(cgPoint: CGPoint(x: loginButton!.center.x + 5, y: loginButton!.center.y))
+
+		shake.fromValue = NSValue(cgPoint: CGPoint(x: loginButton!.center.x - 5,
+		                                           y: loginButton!.center.y))
+
+		shake.toValue = NSValue(cgPoint: CGPoint(x: loginButton!.center.x + 5,
+		                                         y: loginButton!.center.y))
+		
 		loginButton?.layer.add(shake, forKey: "position")
 	}
 
@@ -158,8 +163,6 @@ import LiferayScreens
 
 
 	//MARK: UITextFieldDelegate
-
-
 
 	public func textFieldDidBeginEditing(textField: UITextField) {
 		textInput = textField

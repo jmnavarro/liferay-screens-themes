@@ -59,10 +59,10 @@ public class FanLayout: UICollectionViewLayout {
 	}
 
 	override public var collectionViewContentSize: CGSize {
-		if (collectionView?.numberOfSections == 0) {
+		if collectionView?.numberOfSections == 0 {
 			return CGSize.zero
 		}
-		
+
 		return CGSize(
 			width: CGFloat(collectionView!.numberOfItems(inSection: 0) * Int(itemSize.width)),
 				height: CGFloat(collectionView!.bounds.height))
@@ -79,7 +79,7 @@ public class FanLayout: UICollectionViewLayout {
 		let centerX = collectionView!.contentOffset.x +
 				(collectionView!.bounds.width / 2.0)
 
-		if (collectionView?.numberOfSections != 0) {
+		if collectionView?.numberOfSections != 0 {
 
 			let theta = atan2(collectionView!.bounds.width/2.0, radius +
 					(itemSize.height/2.0) - (collectionView!.bounds.height/2.0))
@@ -87,7 +87,7 @@ public class FanLayout: UICollectionViewLayout {
 			var startIndex = 0
 			var endIndex = collectionView!.numberOfItems(inSection: 0) - 1
 
-			if (angle < -theta) {
+			if angle < -theta {
 				startIndex = Int(floor((-theta - angle)/anglePerItem))
 			}
 

@@ -109,8 +109,13 @@ import LiferayScreens
 		shake.duration = 0.08
 		shake.repeatCount = 4
 		shake.autoreverses = true
-		shake.fromValue = NSValue(cgPoint: CGPoint(x: signUpButton!.center.x - 5, y: signUpButton!.center.y))
-		shake.toValue = NSValue(cgPoint: CGPoint(x: signUpButton!.center.x + 5, y: signUpButton!.center.y))
+
+		shake.fromValue = NSValue(cgPoint: CGPoint(x: signUpButton!.center.x - 5,
+		                                           y: signUpButton!.center.y))
+
+		shake.toValue = NSValue(cgPoint: CGPoint(x: signUpButton!.center.x + 5,
+		                                         y: signUpButton!.center.y))
+
 		signUpButton?.layer.add(shake, forKey: "position")
 	}
 
@@ -130,8 +135,8 @@ import LiferayScreens
 	}
 
 	public func layoutWhenKeyboardShown( _ keyboardHeight: CGFloat,
-	                                     animation:(time: NSNumber, curve: NSNumber)) {
-		
+	    animation:(time: NSNumber, curve: NSNumber)) {
+
 		var keyboardHeight = keyboardHeight
 		let absoluteFrame = convert(frame, to: window!)
 
@@ -221,7 +226,7 @@ import LiferayScreens
 			label = passwordLabel
 			msg = passwordFailMsg
 
-			switch (newText.passwordStrengh) {
+			switch newText.passwordStrengh {
 			case (let strength)
 				where strength < 0.2:
 				valid = false
@@ -261,7 +266,7 @@ import LiferayScreens
 				                                          comment: "")
 				passwordFailMsg!.textColor = nameLabel!.textColor
 			}
-			
+
 			preValidation = true
 			keepMessage = true
 		case jobField!:
@@ -272,14 +277,14 @@ import LiferayScreens
 			valid = (newText != "")
 		default: ()
 		}
-		
+
 		if valid {
 			hideValidationError(controls: (mark!, fail!, label!, msg!), keepMessage: keepMessage)
 		}
 		else {
 			showValidationError(controls: (mark!, fail!, label!, msg!), preValidation: preValidation)
 		}
-		
+
 		return true
 	}
 
