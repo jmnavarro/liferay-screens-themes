@@ -78,10 +78,10 @@ import LiferayScreens
 	override public func onCreated() {
 		scrollView?.contentSize = scrollView!.frame.size
 
-		initialSetup((nameMark!, nameFail!, nameFailMsg!))
-		initialSetup((emailMark!, emailFail!, emailFailMsg!))
-		initialSetup((jobMark!, jobFail!, jobFailMsg!))
-		initialSetup((passwordMark!, passwordFail!, passwordFailMsg!))
+		initialSetup(images: (nameMark!, nameFail!, nameFailMsg!))
+		initialSetup(images: (emailMark!, emailFail!, emailFailMsg!))
+		initialSetup(images: (jobMark!, jobFail!, jobFailMsg!))
+		initialSetup(images: (passwordMark!, passwordFail!, passwordFailMsg!))
 	}
 
 	override public func onShow() {
@@ -109,9 +109,9 @@ import LiferayScreens
 		shake.duration = 0.08
 		shake.repeatCount = 4
 		shake.autoreverses = true
-		shake.fromValue = NSValue(CGPoint: CGPointMake(signUpButton!.center.x - 5, signUpButton!.center.y))
-		shake.toValue = NSValue(CGPoint: CGPointMake(signUpButton!.center.x + 5, signUpButton!.center.y))
-		signUpButton?.layer.addAnimation(shake, forKey: "position")
+		shake.fromValue = NSValue(cgPoint: CGPoint(x: signUpButton!.center.x - 5, y: signUpButton!.center.y))
+		shake.toValue = NSValue(cgPoint: CGPoint(x: signUpButton!.center.x + 5, y: signUpButton!.center.y))
+		signUpButton?.layer.add(shake, forKey: "position")
 	}
 
 	private func initialSetup(images: (mark: UIImageView, fail: UIImageView, msg: UILabel)) {
@@ -129,21 +129,22 @@ import LiferayScreens
 		self.endEditing(true)
 	}
 
-	public func layoutWhenKeyboardShown(var keyboardHeight: CGFloat,
-			animation:(time: NSNumber, curve: NSNumber)) {
+	public func layoutWhenKeyboardShown( _ keyboardHeight: CGFloat,
+	                                     animation:(time: NSNumber, curve: NSNumber)) {
+		
+		var keyboardHeight = keyboardHeight
+		let absoluteFrame = convert(frame, to: window!)
 
-		let absoluteFrame = convertRect(frame, toView: window!)
-
-		if textInput!.autocorrectionType == UITextAutocorrectionType.Default ||
-			textInput!.autocorrectionType == UITextAutocorrectionType.Yes {
+		if textInput!.autocorrectionType == UITextAutocorrectionType.default ||
+			textInput!.autocorrectionType == UITextAutocorrectionType.yes {
 
 			keyboardHeight += KeyboardManager.defaultAutocorrectionBarHeight
 		}
 
 		if (absoluteFrame.origin.y + absoluteFrame.size.height >
-				UIScreen.mainScreen().bounds.height - keyboardHeight) || originalFrame != nil {
+				UIScreen.main.bounds.height - keyboardHeight) || originalFrame != nil {
 
-			let newHeight = UIScreen.mainScreen().bounds.height -
+			let newHeight = UIScreen.main.bounds.height -
 					keyboardHeight - absoluteFrame.origin.y
 
 			if Int(newHeight) != Int(self.frame.size.height) {
@@ -151,15 +152,15 @@ import LiferayScreens
 					originalFrame = frame
 				}
 
-				UIView.animateWithDuration(animation.time.doubleValue,
+				UIView.animate(withDuration: animation.time.doubleValue,
 						delay: 0.0,
-						options: UIViewAnimationOptions(rawValue: animation.curve.unsignedLongValue),
+						options: UIViewAnimationOptions(rawValue: animation.curve.uintValue),
 						animations: {
-							self.frame = CGRectMake(
-									self.frame.origin.x,
-									self.frame.origin.y,
-									self.frame.size.width,
-									newHeight)
+							self.frame = CGRect(
+								x: self.frame.origin.x,
+								y: self.frame.origin.y,
+								width: self.frame.size.width,
+								height: newHeight)
 						},
 						completion: { (completed: Bool) in
 						})
@@ -187,10 +188,12 @@ import LiferayScreens
 			replacementString string: String!)
 			-> Bool {
 
-		let startIndex = textField.text!.startIndex.advancedBy(range.location)
-		let newRange = startIndex..<startIndex.advancedBy(range.length)
+		/*NOT SURE*/
+		let startIndex = textField.text!.index(textField.text!.startIndex, offsetBy: range.location)
+		let newRange = startIndex..<textField.text!.index(startIndex, offsetBy: range.length)
 
-		let newText = textField.text!.stringByReplacingCharactersInRange(newRange, withString:string)
+
+		let newText = textField.text!.replacingCharacters(in: newRange, with:string)
 
 		var mark: UIImageView?
 		var fail: UIImageView?
@@ -199,7 +202,7 @@ import LiferayScreens
 		var preValidation = false
 		var keepMessage = false
 
-		let bundle = NSBundle(forClass: self.dynamicType)
+		let bundle = Bundle(for: type(of: self))
 
 		switch textField {
 			case firstNameField!:
@@ -235,7 +238,7 @@ import LiferayScreens
 								bundle: bundle,
 								value: "",
 								comment: "")
-						passwordFailMsg!.textColor = UIColor.redColor()
+						passwordFailMsg!.textColor = UIColor.red
 
 					case (let strength)
 					where strength < 0.3:
@@ -245,7 +248,7 @@ import LiferayScreens
 								bundle: bundle,
 								value: "",
 								comment: "")
-						passwordFailMsg!.textColor = UIColor.redColor()
+						passwordFailMsg!.textColor = UIColor.red
 
 					case (let strength)
 					where strength < 0.4:
@@ -255,7 +258,7 @@ import LiferayScreens
 								bundle: bundle,
 								value: "",
 								comment: "")
-						passwordFailMsg!.textColor = UIColor.orangeColor()
+						passwordFailMsg!.textColor = UIColor.orange
 
 					default:
 						valid = true
@@ -279,10 +282,10 @@ import LiferayScreens
 		}
 
 		if valid {
-			hideValidationError((mark!, fail!, label!, msg!), keepMessage: keepMessage)
+			hideValidationError(controls: (mark!, fail!, label!, msg!), keepMessage: keepMessage)
 		}
 		else {
-			showValidationError((mark!, fail!, label!, msg!), preValidation: preValidation)
+			showValidationError(controls: (mark!, fail!, label!, msg!), preValidation: preValidation)
 		}
 
 		return true
@@ -295,16 +298,16 @@ import LiferayScreens
 		if controls.mark.frame.origin.x > 0 {
 			// change mark by fail
 
-			UIView.animateWithDuration(0.2,
+			UIView.animate(withDuration: 0.2,
 					delay: 0,
-					options: UIViewAnimationOptions.CurveEaseInOut,
+					options: UIViewAnimationOptions.curveEaseInOut,
 					animations: {
 						controls.mark.alpha = 0.0
 					},
 					completion: { Bool -> Void  in
-						UIView.animateWithDuration(0.3,
+						UIView.animate(withDuration: 0.3,
 							delay: 0,
-							options: UIViewAnimationOptions.CurveEaseInOut,
+							options: UIViewAnimationOptions.curveEaseInOut,
 							animations: {
 								controls.fail.alpha = 1.0
 								controls.msg.frame.origin.x =
@@ -317,9 +320,9 @@ import LiferayScreens
 			// in cross
 			controls.fail.frame.origin.x = -20
 
-			UIView.animateWithDuration(0.3,
+			UIView.animate(withDuration: 0.3,
 					delay: 0,
-					options: UIViewAnimationOptions.CurveEaseInOut,
+					options: UIViewAnimationOptions.curveEaseInOut,
 					animations: {
 						controls.fail.alpha = 1.0
 						controls.mark.frame.origin.x = controls.label.frame.origin.x
@@ -339,9 +342,9 @@ import LiferayScreens
 		if controls.mark.frame.origin.x < 0 {
 			// in
 
-			UIView.animateWithDuration(0.3,
+			UIView.animate(withDuration: 0.3,
 					delay: 0,
-					options: UIViewAnimationOptions.CurveEaseInOut,
+					options: UIViewAnimationOptions.curveEaseInOut,
 					animations: {
 						controls.mark.alpha = 1.0
 						controls.mark.frame.origin.x = controls.label.frame.origin.x
@@ -353,9 +356,9 @@ import LiferayScreens
 			if controls.fail.alpha == 1.0 {
 				// change fail by mark
 
-				UIView.animateWithDuration(0.2,
+				UIView.animate(withDuration: 0.2,
 					delay: 0,
-					options: UIViewAnimationOptions.CurveEaseInOut,
+					options: UIViewAnimationOptions.curveEaseInOut,
 					animations: {
 						controls.fail.alpha = 0.0
 						if !keepMessage {
@@ -363,9 +366,9 @@ import LiferayScreens
 						}
 					},
 					completion: { Bool -> Void  in
-						UIView.animateWithDuration(0.3,
+						UIView.animate(withDuration: 0.3,
 							delay: 0,
-							options: UIViewAnimationOptions.CurveEaseInOut,
+							options: UIViewAnimationOptions.curveEaseInOut,
 							animations: {
 								controls.mark.alpha = 1.0
 							},

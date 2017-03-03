@@ -22,16 +22,16 @@ public class ImageGalleryView_demo : ImageGalleryCollectionViewBase {
 
 	// MARK: BaseListCollectionView
 
-	public override func doConfigureCollectionView(collectionView: UICollectionView) {
-		collectionView.backgroundColor = .blackColor()
+	public override func doConfigureCollectionView(_ collectionView: UICollectionView) {
+		collectionView.backgroundColor = .black
 	}
 
 	public override func doRegisterCellNibs() {
-		if let imageGalleryGridCellNib = NSBundle.nibInBundles(
+		if let imageGalleryGridCellNib = Bundle.nibInBundles(
 			name: "ImageGalleryFanCell",
-			currentClass: self.dynamicType) {
+			currentClass: type(of: self)) {
 
-			collectionView?.registerNib(
+			collectionView?.register(
 				imageGalleryGridCellNib,
 				forCellWithReuseIdentifier: imageCellId)
 		}
@@ -42,11 +42,11 @@ public class ImageGalleryView_demo : ImageGalleryCollectionViewBase {
 	}
 
 	override public func doFillLoadedCell(
-		indexPath indexPath: NSIndexPath,
+		indexPath indexPath: IndexPath,
 		          cell: UICollectionViewCell,
 		          object:AnyObject) {
 
-		guard let imageCell = cell as? ImageGalleryFanCell, entry = object as? ImageEntry else {
+		guard let imageCell = cell as? ImageGalleryFanCell, let entry = object as? ImageEntry else {
 			return
 		}
 
@@ -58,15 +58,15 @@ public class ImageGalleryView_demo : ImageGalleryCollectionViewBase {
 		}
 	}
 
-	public override func doGetCellId(indexPath indexPath: NSIndexPath, object: AnyObject?) -> String {
+	public override func doGetCellId(indexPath indexPath: IndexPath, object: AnyObject?) -> String {
 		return imageCellId
 	}
 
 	public override func collectionView(
-		collectionView: UICollectionView,
-		didSelectItemAtIndexPath indexPath: NSIndexPath) {
+		_ collectionView: UICollectionView,
+		didSelectItemAt indexPath: IndexPath) {
 
-		if collectionView.collectionViewLayout.isKindOfClass(SlideShowLayout.self) {
+		if collectionView.collectionViewLayout.isKind(of: SlideShowLayout.self) {
 			collectionView.setCollectionViewLayout(FanLayout(), animated: true)
 			collectionView.setContentOffset(CGPoint.zero, animated: true)
 		}

@@ -36,10 +36,10 @@ public class SlideShowLayout : UICollectionViewFlowLayout {
 		initialize()
 	}
 
-	public override func layoutAttributesForElementsInRect(
-			rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+	public override func layoutAttributesForElements(
+		in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
 			
-		guard let attributesArray = super.layoutAttributesForElementsInRect(rect)
+		guard let attributesArray = super.layoutAttributesForElements(in: rect)
 		else {
 			return []
 		}
@@ -47,7 +47,7 @@ public class SlideShowLayout : UICollectionViewFlowLayout {
 		let attributesCopy = attributesArray.map { $0.copy() as! UICollectionViewLayoutAttributes }
 
 		for attributes in attributesCopy {
-			if CGRectIntersectsRect(attributes.frame, rect) {
+			if attributes.frame.intersects(rect) {
 				setAttributes(attributes: attributes, visibleRect: visibleRect)
 			}
 		}
@@ -55,14 +55,14 @@ public class SlideShowLayout : UICollectionViewFlowLayout {
 		return attributesCopy
 	}
 
-	public override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
+	public override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
 		return true
 	}
 
-	public override func layoutAttributesForItemAtIndexPath(
-			indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
+	public override func layoutAttributesForItem(
+		at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
 
-		guard let attributes = super.layoutAttributesForItemAtIndexPath(indexPath)
+		guard let attributes = super.layoutAttributesForItem(at: indexPath as IndexPath)
 		else {
 			return nil
 		}
@@ -74,8 +74,8 @@ public class SlideShowLayout : UICollectionViewFlowLayout {
 		return attributesCopy
 	}
 
-	public override func targetContentOffsetForProposedContentOffset(
-			proposedContentOffset: CGPoint,
+	public override func targetContentOffset(
+		forProposedContentOffset proposedContentOffset: CGPoint,
 			withScrollingVelocity velocity: CGPoint) -> CGPoint {
 
 		var offsetAdjustment = CGFloat(MAXFLOAT)
@@ -87,7 +87,7 @@ public class SlideShowLayout : UICollectionViewFlowLayout {
 				width: collectionView!.bounds.width,
 				height:  collectionView!.bounds.width)
 
-		let attributes = super.layoutAttributesForElementsInRect(targetRect)
+		let attributes = super.layoutAttributesForElements(in: targetRect)
 
 		// Look for the closest image to the center
 		for attribute in attributes! {
@@ -104,14 +104,14 @@ public class SlideShowLayout : UICollectionViewFlowLayout {
 
 	internal func initialize() {
 		itemSize = CGSize(width: 133, height: 173)
-		scrollDirection = .Horizontal
+		scrollDirection = .horizontal
 		minimumLineSpacing = 100
 		minimumInteritemSpacing = 1000
 		sectionInset = UIEdgeInsets(top: 10, left: 100, bottom: 10, right: 100)
 	}
 
 	internal func setAttributes(attributes attributes: UICollectionViewLayoutAttributes, visibleRect: CGRect) {
-		let distanceToCenter = CGRectGetMidX(visibleRect) - attributes.center.x
+		let distanceToCenter = visibleRect.midX - attributes.center.x
 		let normalizedDistance = distanceToCenter / DistanceBetweenCenters
 
 		if abs(distanceToCenter) < DistanceBetweenCenters {

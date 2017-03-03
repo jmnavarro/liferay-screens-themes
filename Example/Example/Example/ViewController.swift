@@ -24,9 +24,9 @@ class ViewController: UIViewController, LoginScreenletDelegate {
 		// Dispose of any resources that can be recreated.
 	}
 
-	func screenlet(screenlet: BaseScreenlet,
+	func screenlet(_ screenlet: BaseScreenlet,
 	               onLoginResponseUserAttributes attributes: [String:AnyObject]) {
-		performSegueWithIdentifier("login", sender: nil)
+		performSegue(withIdentifier: "login", sender: nil)
 	}
 }
 

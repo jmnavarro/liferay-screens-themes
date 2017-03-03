@@ -24,9 +24,9 @@ public class ImageGalleryFanCell: UICollectionViewCell {
 		}
 		set {
 			previewImage.lr_setImageWithURL(
-				NSURL(string: newValue)!,
+				NSURL(string: newValue)! as URL,
 				placeholderImage:  placeholderImage,
-				optionsInfo: [.BackgroundDecode])
+				optionsInfo: [.backgroundDecode])
 		}
 	}
 
@@ -44,18 +44,18 @@ public class ImageGalleryFanCell: UICollectionViewCell {
 		startAnchorPoint = self.layer.anchorPoint
 
 		previewImage.clipsToBounds = true
-		previewImage.kf_showIndicatorWhenLoading = true
+		previewImage.kf.indicatorType = .activity
 		previewImage.layer.allowsEdgeAntialiasing = true
 
-		placeholderImage = NSBundle.imageInBundles(
+		placeholderImage = Bundle.imageInBundles(
 			name: "default-placeholder-image",
-			currentClass: self.dynamicType)
+			currentClass: type(of: self))
 
 		layer.cornerRadius = 10
 		layer.borderWidth = 1
-		layer.borderColor = UIColor.blackColor().CGColor
+		layer.borderColor = UIColor.black.cgColor
 
-		backgroundColor = .whiteColor()
+		backgroundColor = .white
 	}
 
 	public override func prepareForReuse() {
@@ -64,8 +64,8 @@ public class ImageGalleryFanCell: UICollectionViewCell {
 		previewImage.image = placeholderImage
 	}
 
-	override public func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes) {
-	  	super.applyLayoutAttributes(layoutAttributes)
+	override public func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
+	  	super.apply(layoutAttributes)
 
 		guard let circularlayoutAttributes = layoutAttributes as? FanCollectionViewLayoutAttributes
 		else {
@@ -76,6 +76,6 @@ public class ImageGalleryFanCell: UICollectionViewCell {
 		}
 		self.layer.anchorPoint = circularlayoutAttributes.anchorPoint
 		self.center.y += (circularlayoutAttributes.anchorPoint.y - 0.5) *
-				CGRectGetHeight(self.bounds)
+				self.bounds.height
 	}
 }
