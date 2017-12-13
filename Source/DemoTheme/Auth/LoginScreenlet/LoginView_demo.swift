@@ -29,7 +29,7 @@ import LiferayScreens
 	@IBOutlet internal var emailLabel: UILabel?
 	@IBOutlet internal var passwordLabel: UILabel?
 
-	@IBOutlet internal var scrollView: UIScrollView?
+	@IBOutlet internal var scroll: UIScrollView?
 
 	@IBOutlet weak var spinner: UIActivityIndicatorView?
 	@IBOutlet weak var progressView: UIView?
@@ -52,7 +52,7 @@ import LiferayScreens
 	}
 
 	override public func onCreated() {
-		scrollView?.contentSize = scrollView!.frame.size
+		scroll?.contentSize = scroll!.frame.size
 
 		initialSetup(images: (emailMark!, emailFail!, emailFailMsg!))
 		initialSetup(images: (passwordMark!, passwordFail!, passwordFailMsg!))

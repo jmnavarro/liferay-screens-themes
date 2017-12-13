@@ -13,7 +13,7 @@
 		0B91F3791D94369A00B266E5 /* ImageGalleryView_demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91F3741D94369A00B266E5 /* ImageGalleryView_demo.swift */; };
 		0B91F37A1D94369A00B266E5 /* ImageGalleryView_demo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B91F3751D94369A00B266E5 /* ImageGalleryView_demo.xib */; };
 		0B91F37C1D9437D100B266E5 /* SlideShowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91F37B1D9437D100B266E5 /* SlideShowLayout.swift */; };
-		6B658196365EF6A8E1435056 /* Pods_LiferayScreensThemeDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F6FFB97D7D87D45ADF007F3 /* Pods_LiferayScreensThemeDemo.framework */; };
+		36A79A55174A73A1D81B8562 /* Pods_LiferayScreensThemeDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9C782443F6AA5F71C784025 /* Pods_LiferayScreensThemeDemo.framework */; };
 		8873CEC91D10053700C630BC /* LiferayScreensThemeDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = 8873CEC81D10053700C630BC /* LiferayScreensThemeDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8873CF021D10084700C630BC /* LoginView_demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8873CED31D10084700C630BC /* LoginView_demo.swift */; };
 		8873CF031D10084700C630BC /* LoginView_demo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8873CED41D10084700C630BC /* LoginView_demo.xib */; };
@@ -53,19 +53,16 @@
 		8873CF251D10084700C630BC /* demo-form-gradient-bottom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8873CEFC1D10084700C630BC /* demo-form-gradient-bottom@2x.png */; };
 		8873CF261D10084700C630BC /* demo-form-gradient-top.png in Resources */ = {isa = PBXBuildFile; fileRef = 8873CEFD1D10084700C630BC /* demo-form-gradient-top.png */; };
 		8873CF271D10084700C630BC /* demo-form-gradient-top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8873CEFE1D10084700C630BC /* demo-form-gradient-top@2x.png */; };
-		9A05EFF6A81FD9AB32B2BA9F /* Pods_LiferayScreensThemeDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0345FF6AFF574AFB4C801C87 /* Pods_LiferayScreensThemeDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0345FF6AFF574AFB4C801C87 /* Pods_LiferayScreensThemeDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LiferayScreensThemeDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B91F3711D94369A00B266E5 /* FanLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FanLayout.swift; sourceTree = "<group>"; };
 		0B91F3721D94369A00B266E5 /* ImageGalleryFanCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGalleryFanCell.swift; sourceTree = "<group>"; };
 		0B91F3731D94369A00B266E5 /* ImageGalleryFanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageGalleryFanCell.xib; sourceTree = "<group>"; };
 		0B91F3741D94369A00B266E5 /* ImageGalleryView_demo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGalleryView_demo.swift; sourceTree = "<group>"; };
 		0B91F3751D94369A00B266E5 /* ImageGalleryView_demo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageGalleryView_demo.xib; sourceTree = "<group>"; };
 		0B91F37B1D9437D100B266E5 /* SlideShowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideShowLayout.swift; sourceTree = "<group>"; };
-		64C14D19BAD11F734F68101A /* Pods-LiferayScreensThemeDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiferayScreensThemeDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-LiferayScreensThemeDemo/Pods-LiferayScreensThemeDemo.release.xcconfig"; sourceTree = "<group>"; };
-		1016027D9BB31D72DAAC1261 /* Pods-LiferayScreensThemeDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiferayScreensThemeDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-LiferayScreensThemeDemo/Pods-LiferayScreensThemeDemo.release.xcconfig"; sourceTree = "<group>"; };
+		83DDBF5C8ECFCD9ABA69C45C /* Pods-LiferayScreensThemeDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiferayScreensThemeDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-LiferayScreensThemeDemo/Pods-LiferayScreensThemeDemo.release.xcconfig"; sourceTree = "<group>"; };
 		8873CEC51D10053700C630BC /* LiferayScreensThemeDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LiferayScreensThemeDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8873CEC81D10053700C630BC /* LiferayScreensThemeDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiferayScreensThemeDemo.h; sourceTree = "<group>"; };
 		8873CECA1D10053700C630BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -111,7 +108,8 @@
 		8873CF001D10084700C630BC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/demo.strings; sourceTree = "<group>"; };
 		8873CF011D10084700C630BC /* zh */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh; path = zh.lproj/demo.strings; sourceTree = "<group>"; };
 		AE5F7F2B6118EFDECFFE2FF2 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EDA0B5DED99227A6E7CE16C5 /* Pods-LiferayScreensThemeDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiferayScreensThemeDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LiferayScreensThemeDemo/Pods-LiferayScreensThemeDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		B9C782443F6AA5F71C784025 /* Pods_LiferayScreensThemeDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LiferayScreensThemeDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC52C3009E4AB8205F86CFC5 /* Pods-LiferayScreensThemeDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiferayScreensThemeDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LiferayScreensThemeDemo/Pods-LiferayScreensThemeDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A05EFF6A81FD9AB32B2BA9F /* Pods_LiferayScreensThemeDemo.framework in Frameworks */,
+				36A79A55174A73A1D81B8562 /* Pods_LiferayScreensThemeDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,9 +141,18 @@
 			isa = PBXGroup;
 			children = (
 				AE5F7F2B6118EFDECFFE2FF2 /* Pods.framework */,
-				0345FF6AFF574AFB4C801C87 /* Pods_LiferayScreensThemeDemo.framework */,
+				B9C782443F6AA5F71C784025 /* Pods_LiferayScreensThemeDemo.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		58432128A36C58B4E30B418B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BC52C3009E4AB8205F86CFC5 /* Pods-LiferayScreensThemeDemo.debug.xcconfig */,
+				83DDBF5C8ECFCD9ABA69C45C /* Pods-LiferayScreensThemeDemo.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		8873CEBB1D10053700C630BC = {
@@ -155,7 +162,7 @@
 				8873CEC71D10053700C630BC /* LiferayScreensThemeDemo */,
 				8873CEC61D10053700C630BC /* Products */,
 				3A8073D6E95B1C7F25AFF5DA /* Frameworks */,
-				987CD7174FA8DD320AB4D0D5 /* Pods */,
+				58432128A36C58B4E30B418B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -278,17 +285,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		987CD7174FA8DD320AB4D0D5 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				EDA0B5DED99227A6E7CE16C5 /* Pods-LiferayScreensThemeDemo.debug.xcconfig */,
-				64C14D19BAD11F734F68101A /* Pods-LiferayScreensThemeDemo.release.xcconfig */,
-				01F9B6A420B8F0438A0458A1 /* Pods-LiferayScreensThemeDemo.debug.xcconfig */,
-				1016027D9BB31D72DAAC1261 /* Pods-LiferayScreensThemeDemo.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -307,12 +303,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8873CECD1D10053700C630BC /* Build configuration list for PBXNativeTarget "LiferayScreensThemeDemo" */;
 			buildPhases = (
-				0B92FA2857546D72921B5B21 /* [CP] Check Pods Manifest.lock */,
+				77CBF8CF2FB69B73C8F73F17 /* [CP] Check Pods Manifest.lock */,
 				8873CEC01D10053700C630BC /* Sources */,
 				8873CEC11D10053700C630BC /* Frameworks */,
 				8873CEC21D10053700C630BC /* Headers */,
 				8873CEC31D10053700C630BC /* Resources */,
-				1661D8D7579D44179746DD49 /* [CP] Copy Pods Resources */,
+				90B802C2ED7229D83C5325BA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -396,22 +392,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0B92FA2857546D72921B5B21 /* [CP] Check Pods Manifest.lock */ = {
+		77CBF8CF2FB69B73C8F73F17 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LiferayScreensThemeDemo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1661D8D7579D44179746DD49 /* [CP] Copy Pods Resources */ = {
+		90B802C2ED7229D83C5325BA /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -569,7 +568,7 @@
 		};
 		8873CECE1D10053700C630BC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EDA0B5DED99227A6E7CE16C5 /* Pods-LiferayScreensThemeDemo.debug.xcconfig */;
+			baseConfigurationReference = BC52C3009E4AB8205F86CFC5 /* Pods-LiferayScreensThemeDemo.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
@@ -580,19 +579,20 @@
 				ENABLE_ON_DEMAND_RESOURCES = NO;
 				INFOPLIST_FILE = LiferayScreensThemeDemo/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.liferay.LiferayScreensThemeDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
 		8873CECF1D10053700C630BC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64C14D19BAD11F734F68101A /* Pods-LiferayScreensThemeDemo.release.xcconfig */;
+			baseConfigurationReference = 83DDBF5C8ECFCD9ABA69C45C /* Pods-LiferayScreensThemeDemo.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
@@ -603,12 +603,13 @@
 				ENABLE_ON_DEMAND_RESOURCES = NO;
 				INFOPLIST_FILE = LiferayScreensThemeDemo/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.liferay.LiferayScreensThemeDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
