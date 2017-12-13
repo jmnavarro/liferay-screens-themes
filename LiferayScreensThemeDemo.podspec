@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 		'Jose Manuel Navarro' => 'jose.navarro@liferay.com'
 	}
 	
-	s.platform = :ios, '8.0'
+	s.platform = :ios, '9.0'
 	s.requires_arc = true
 
 	s.source_files = 'Source/DemoTheme/**/*.{h,m,swift}'
