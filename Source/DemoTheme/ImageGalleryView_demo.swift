@@ -44,7 +44,7 @@ public class ImageGalleryView_demo : ImageGalleryCollectionViewBase {
 	override public func doFillLoadedCell(
 		indexPath: IndexPath,
 		cell: UICollectionViewCell,
-		object:AnyObject) {
+		object: AnyObject) {
 
 		guard let imageCell = cell as? ImageGalleryFanCell, let entry = object as? ImageEntry else {
 			return
