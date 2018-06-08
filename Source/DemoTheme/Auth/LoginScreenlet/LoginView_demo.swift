@@ -74,7 +74,7 @@ import LiferayScreens
 		keyboardManager.unregisterObserver()
 	}
 
-	override public func onPreAction(name name: String?, sender: AnyObject?) -> Bool {
+	override public func onPreAction(name: String?, sender: AnyObject?) -> Bool {
 		if name == "login-action" {
 			if !valid {
 				shakeEffect()
@@ -199,7 +199,7 @@ import LiferayScreens
 				label = passwordLabel
 				msg = passwordFailMsg
 
-				if newText.characters.count < 3 {
+				if newText.count < 3 {
 					valid = false
 					passwordFailMsg!.text = NSLocalizedString("demo-login-password-error-1",
 					                                          tableName: "demo",
