@@ -1,6 +1,19 @@
 source 'https://github.com/CocoaPods/Specs.git'
+
 use_frameworks!
+inhibit_all_warnings!
 
 target "LiferayScreensThemeDemo" do
 	pod 'LiferayScreens'
+end
+
+
+post_install do |installer|
+	installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['CONFIGURATION_BUILD_DIR'] = '$PODS_CONFIGURATION_BUILD_DIR'
+            config.build_settings.delete('CODE_SIGNING_ALLOWED')
+            config.build_settings.delete('CODE_SIGNING_REQUIRED')
+        end
+    end
 end

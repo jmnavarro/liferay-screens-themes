@@ -585,7 +585,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.liferay.LiferayScreensThemeDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
@@ -609,7 +609,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.liferay.LiferayScreensThemeDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;

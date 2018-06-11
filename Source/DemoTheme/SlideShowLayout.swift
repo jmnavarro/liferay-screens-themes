@@ -110,7 +110,7 @@ public class SlideShowLayout : UICollectionViewFlowLayout {
 		sectionInset = UIEdgeInsets(top: 10, left: 100, bottom: 10, right: 100)
 	}
 
-	internal func setAttributes(attributes attributes: UICollectionViewLayoutAttributes, visibleRect: CGRect) {
+	internal func setAttributes(attributes: UICollectionViewLayoutAttributes, visibleRect: CGRect) {
 		let distanceToCenter = visibleRect.midX - attributes.center.x
 		let normalizedDistance = distanceToCenter / DistanceBetweenCenters
 

@@ -42,9 +42,9 @@ public class ImageGalleryView_demo : ImageGalleryCollectionViewBase {
 	}
 
 	override public func doFillLoadedCell(
-		indexPath indexPath: IndexPath,
-		          cell: UICollectionViewCell,
-		          object:AnyObject) {
+		indexPath: IndexPath,
+		cell: UICollectionViewCell,
+		object: AnyObject) {
 
 		guard let imageCell = cell as? ImageGalleryFanCell, let entry = object as? ImageEntry else {
 			return
@@ -58,7 +58,7 @@ public class ImageGalleryView_demo : ImageGalleryCollectionViewBase {
 		}
 	}
 
-	public override func doGetCellId(indexPath indexPath: IndexPath, object: AnyObject?) -> String {
+	public override func doGetCellId(indexPath: IndexPath, object: AnyObject?) -> String {
 		return imageCellId
 	}
 

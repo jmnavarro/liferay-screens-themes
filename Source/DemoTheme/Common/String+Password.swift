@@ -16,7 +16,7 @@ import Foundation
 extension String {
 
 	public var isLargeEnough: Bool {
-		return self.characters.count > 5
+		return self.count > 5
 	}
 
 	public var hasDigits: Bool {
